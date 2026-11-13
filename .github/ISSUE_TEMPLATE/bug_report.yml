@@ -1,0 +1,23 @@
+name: Bug
+description: A check is wrong, or the CLI or web page misbehaves
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Include the rule id and the finding message if you have them.
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Metadata or command
+      description: Redact keys and personal data. A small JSON sample or the nft-lint command is enough.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "0.1.0"

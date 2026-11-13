@@ -1,0 +1,6 @@
+dist
+coverage
+pnpm-lock.yaml
+node_modules
+packages/web/dist
+*.svg

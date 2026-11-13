@@ -1,0 +1,19 @@
+{
+  "$id": "https://github.com/charvelchedraui/nft-lint/blob/main/schemas/opensea-attribute.schema.json",
+  "title": "OpenSea-style attribute",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["trait_type", "value"],
+  "properties": {
+    "trait_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "value": {
+      "type": ["string", "number"]
+    },
+    "display_type": {
+      "enum": ["number", "boost_number", "boost_percentage", "date"]
+    }
+  }
+}

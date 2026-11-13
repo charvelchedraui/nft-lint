@@ -1,0 +1,371 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`fixtures > common-animation-url-fail.json 1`] = `
+[
+  {
+    "message": "animation_url is not a usable URI (URI is not absolute.)",
+    "path": "animation_url",
+    "ruleId": "common/animation-url",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > common-animation-url-pass.json 1`] = `[]`;
+
+exports[`fixtures > common-attributes-fail.json 1`] = `
+[
+  {
+    "message": "Duplicate trait_type "Plumage" appears 2 times. Marketplaces may keep only one.",
+    "path": "attributes",
+    "ruleId": "common/attributes",
+    "severity": "warn",
+  },
+]
+`;
+
+exports[`fixtures > common-attributes-pass.json 1`] = `[]`;
+
+exports[`fixtures > common-background-color-fail.json 1`] = `
+[
+  {
+    "message": "background_color must not start with #. Use "e8dcc8" when that leaves six hex digits.",
+    "path": "background_color",
+    "ruleId": "common/background-color",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > common-background-color-pass.json 1`] = `[]`;
+
+exports[`fixtures > common-external-url-fail.json 1`] = `
+[
+  {
+    "message": "external_url must be an absolute http(s) URL.",
+    "path": "external_url",
+    "ruleId": "common/external-url",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > common-external-url-pass.json 1`] = `[]`;
+
+exports[`fixtures > common-json-fail.json 1`] = `
+[
+  {
+    "message": "Duplicate key "name". JSON keeps the last value and drops the earlier one.",
+    "path": "name",
+    "ruleId": "common/json",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > common-json-pass.json 1`] = `[]`;
+
+exports[`fixtures > common-metadata-fetch-fail.json 1`] = `
+[
+  {
+    "message": "Offline mode cannot fetch https://example.com/1.json. Re-run without --offline or pass the JSON.",
+    "path": "",
+    "ruleId": "common/metadata-fetch",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > common-metadata-fetch-pass.json 1`] = `[]`;
+
+exports[`fixtures > common-standard-fail.json 1`] = `
+[
+  {
+    "message": "Could not tell which metadata standard this is. Expected ERC-721, ERC-1155, or Metaplex JSON.",
+    "path": "",
+    "ruleId": "common/standard",
+    "severity": "info",
+  },
+]
+`;
+
+exports[`fixtures > common-standard-pass.json 1`] = `[]`;
+
+exports[`fixtures > common-youtube-url-fail.json 1`] = `
+[
+  {
+    "message": "youtube_url must be an https youtube.com or youtu.be video URL.",
+    "path": "youtube_url",
+    "ruleId": "common/youtube-url",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > common-youtube-url-pass.json 1`] = `[]`;
+
+exports[`fixtures > evm-contract-uri-fail.json 1`] = `
+[
+  {
+    "message": "contractURI is missing an image.",
+    "path": "contractURI.image",
+    "ruleId": "evm/contract-uri",
+    "severity": "warn",
+  },
+]
+`;
+
+exports[`fixtures > evm-contract-uri-pass.json 1`] = `[]`;
+
+exports[`fixtures > evm-eip2981-fail.json 1`] = `
+[
+  {
+    "message": "Contract does not advertise EIP-2981 (supportsInterface 0x2a55205a). Marketplaces may ignore royalties.",
+    "path": "supportsInterface",
+    "ruleId": "evm/eip2981",
+    "severity": "warn",
+  },
+]
+`;
+
+exports[`fixtures > evm-eip2981-pass.json 1`] = `[]`;
+
+exports[`fixtures > evm-erc1155-decimals-fail.json 1`] = `
+[
+  {
+    "message": "decimals must be a non-negative integer when it is present.",
+    "path": "decimals",
+    "ruleId": "evm/erc1155-decimals",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > evm-erc1155-decimals-pass.json 1`] = `[]`;
+
+exports[`fixtures > evm-erc1155-id-fail.json 1`] = `
+[
+  {
+    "message": "ERC-1155 placeholder {ID} is invalid. Use the exact lowercase token {id}. Clients replace it with 64 lowercase hex characters and no 0x prefix.",
+    "path": "uri",
+    "ruleId": "evm/erc1155-id",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > evm-erc1155-id-pass.json 1`] = `[]`;
+
+exports[`fixtures > evm-erc1155-localization-fail.json 1`] = `
+[
+  {
+    "message": "localization.uri must be a string containing the {locale} placeholder.",
+    "path": "localization.uri",
+    "ruleId": "evm/erc1155-localization",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > evm-erc1155-localization-pass.json 1`] = `[]`;
+
+exports[`fixtures > evm-required-fields-fail.json 1`] = `
+[
+  {
+    "message": "Missing required field "image".",
+    "path": "image",
+    "ruleId": "evm/required-fields",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > evm-required-fields-pass.json 1`] = `[]`;
+
+exports[`fixtures > evm-token-uri-fail.json 1`] = `
+[
+  {
+    "message": "The contract did not return a tokenURI or uri.",
+    "path": "tokenURI",
+    "ruleId": "evm/token-uri",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > evm-token-uri-pass.json 1`] = `[]`;
+
+exports[`fixtures > media-arweave-uri-fail.json 1`] = `
+[
+  {
+    "message": "Arweave transaction id in image must be 43 base64url characters.",
+    "path": "image",
+    "ruleId": "media/arweave-uri",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > media-arweave-uri-pass.json 1`] = `[]`;
+
+exports[`fixtures > media-host-policy-fail.json 1`] = `
+[
+  {
+    "message": "image is hosted on cdn.example. Prefer ipfs:// or ar:// so the file survives if that server goes away.",
+    "path": "image",
+    "ruleId": "media/host-policy",
+    "severity": "warn",
+  },
+]
+`;
+
+exports[`fixtures > media-host-policy-pass.json 1`] = `[]`;
+
+exports[`fixtures > media-ipfs-gateways-fail.json 1`] = `
+[
+  {
+    "message": "image did not load on any configured IPFS gateway.",
+    "path": "image",
+    "ruleId": "media/ipfs-gateways",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > media-ipfs-gateways-pass.json 1`] = `[]`;
+
+exports[`fixtures > media-ipfs-uri-fail.json 1`] = `
+[
+  {
+    "message": "image hardcodes the ipfs.io gateway. Use ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png so clients can pick a gateway.",
+    "path": "image",
+    "ruleId": "media/ipfs-uri",
+    "severity": "warn",
+  },
+]
+`;
+
+exports[`fixtures > media-ipfs-uri-pass.json 1`] = `[]`;
+
+exports[`fixtures > media-mime-fail.json 1`] = `
+[
+  {
+    "message": "image looks like image/png, but the metadata declares image/jpeg.",
+    "path": "image",
+    "ruleId": "media/mime",
+    "severity": "warn",
+  },
+  {
+    "message": "image looks like image/png, but the URL ends in .jpg.",
+    "path": "image",
+    "ruleId": "media/mime",
+    "severity": "warn",
+  },
+]
+`;
+
+exports[`fixtures > media-mime-pass.json 1`] = `[]`;
+
+exports[`fixtures > media-reachable-fail.json 1`] = `
+[
+  {
+    "message": "image did not load (HTTP 404): No IPFS gateway returned this CID..",
+    "path": "image",
+    "ruleId": "media/reachable",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > media-reachable-pass.json 1`] = `[]`;
+
+exports[`fixtures > media-size-fail.json 1`] = `
+[
+  {
+    "message": "image is 11000000 bytes, over the 10485760 byte limit.",
+    "path": "image",
+    "ruleId": "media/size",
+    "severity": "warn",
+  },
+]
+`;
+
+exports[`fixtures > media-size-pass.json 1`] = `[]`;
+
+exports[`fixtures > solana-attributes-match-fail.json 1`] = `
+[
+  {
+    "message": "On-chain attributes do not match the JSON: Plumage (json "Amber", on-chain "Slate").",
+    "path": "attributes",
+    "ruleId": "solana/attributes-match",
+    "severity": "warn",
+  },
+]
+`;
+
+exports[`fixtures > solana-attributes-match-pass.json 1`] = `[]`;
+
+exports[`fixtures > solana-byte-lengths-fail.json 1`] = `
+[
+  {
+    "message": "symbol is 11 UTF-8 bytes. Metaplex allows 10 on chain.",
+    "path": "symbol",
+    "ruleId": "solana/byte-lengths",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > solana-byte-lengths-pass.json 1`] = `[]`;
+
+exports[`fixtures > solana-core-plugins-fail.json 1`] = `
+[
+  {
+    "message": "Metaplex Core asset is missing an on-chain uri.",
+    "path": "uri",
+    "ruleId": "solana/core-plugins",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > solana-core-plugins-pass.json 1`] = `[]`;
+
+exports[`fixtures > solana-creators-fee-fail.json 1`] = `
+[
+  {
+    "message": "creator shares add up to 90. They must add up to 100.",
+    "path": "properties.creators",
+    "ruleId": "solana/creators-fee",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > solana-creators-fee-pass.json 1`] = `[]`;
+
+exports[`fixtures > solana-image-in-files-fail.json 1`] = `
+[
+  {
+    "message": "image must also appear as a properties.files entry so wallets know its MIME type.",
+    "path": "properties.files",
+    "ruleId": "solana/image-in-files",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > solana-image-in-files-pass.json 1`] = `[]`;
+
+exports[`fixtures > solana-required-fields-fail.json 1`] = `
+[
+  {
+    "message": "Missing required field "properties".",
+    "path": "properties",
+    "ruleId": "solana/required-fields",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > solana-required-fields-pass.json 1`] = `[]`;

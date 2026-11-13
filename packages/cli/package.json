@@ -1,0 +1,47 @@
+{
+  "name": "nft-lint",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charvelchedraui/nft-lint.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/charvelchedraui/nft-lint#readme",
+  "bugs": {
+    "url": "https://github.com/charvelchedraui/nft-lint/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "description": "CLI for the nft-lint metadata validator.",
+  "bin": {
+    "nft-lint": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@nft-lint/core": "workspace:*",
+    "@nft-lint/preset": "workspace:*",
+    "@nft-lint/fetchers": "workspace:*",
+    "commander": "^14.0.1",
+    "picocolors": "^1.1.1"
+  }
+}

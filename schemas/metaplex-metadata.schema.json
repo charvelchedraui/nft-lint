@@ -1,0 +1,46 @@
+{
+  "$id": "https://github.com/charvelchedraui/nft-lint/blob/main/schemas/metaplex-metadata.schema.json",
+  "title": "Metaplex token metadata JSON",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["name", "symbol", "description", "image", "attributes", "properties"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string",
+      "minLength": 1
+    },
+    "animation_url": {
+      "type": "string"
+    },
+    "external_url": {
+      "type": "string"
+    },
+    "attributes": {
+      "type": "array"
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["files", "category"],
+      "properties": {
+        "files": {
+          "type": "array"
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

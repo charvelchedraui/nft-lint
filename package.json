@@ -1,0 +1,51 @@
+{
+  "name": "nft-lint",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Free open-source multichain NFT metadata validator.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.33.4",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charvelchedraui/nft-lint.git"
+  },
+  "homepage": "https://github.com/charvelchedraui/nft-lint#readme",
+  "bugs": {
+    "url": "https://github.com/charvelchedraui/nft-lint/issues"
+  },
+  "scripts": {
+    "build": "pnpm -r --filter \"./packages/*\" build",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p packages/web/tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:network": "NFT_LINT_NETWORK=1 vitest run tests/network.test.ts",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "rules:check": "vitest run tests/registry.test.ts",
+    "dev:web": "pnpm --filter @nft-lint/web dev",
+    "smoke": "node packages/cli/dist/cli.js chains && node packages/cli/dist/cli.js rules"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^22.19.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitest/coverage-v8": "^3.2.4",
+    "ajv": "^8.17.1",
+    "viem": "^2.39.0",
+    "eslint": "^9.39.1",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3",
+    "vitest": "^3.2.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

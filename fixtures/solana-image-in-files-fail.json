@@ -1,0 +1,35 @@
+{
+  "rule": "solana/image-in-files",
+  "kind": "fail",
+  "input": {
+    "json": {
+      "name": "Glass Finch",
+      "symbol": "FINCH",
+      "description": "Kiln-fired glass bird.",
+      "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "attributes": [
+        {
+          "trait_type": "Plumage",
+          "value": "Amber"
+        }
+      ],
+      "properties": {
+        "files": [
+          {
+            "uri": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/other.png",
+            "type": "image/png"
+          }
+        ],
+        "category": "image",
+        "creators": [
+          {
+            "address": "FinchCreator111111111111111111111111111",
+            "share": 100
+          }
+        ]
+      },
+      "seller_fee_basis_points": 500
+    },
+    "standard": "metaplex-token-metadata"
+  }
+}

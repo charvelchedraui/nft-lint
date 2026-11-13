@@ -1,0 +1,7 @@
+{
+  "rule": "common/standard",
+  "kind": "fail",
+  "input": {
+    "json": {}
+  }
+}

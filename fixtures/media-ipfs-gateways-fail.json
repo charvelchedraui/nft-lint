@@ -1,0 +1,45 @@
+{
+  "rule": "media/ipfs-gateways",
+  "kind": "fail",
+  "input": {
+    "json": {
+      "name": "Glass Finch",
+      "description": "Kiln-fired glass bird.",
+      "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "external_url": "https://gallery.example/finch/1",
+      "background_color": "e8dcc8",
+      "attributes": [
+        {
+          "trait_type": "Plumage",
+          "value": "Amber"
+        },
+        {
+          "trait_type": "Edition",
+          "display_type": "number",
+          "value": 1
+        }
+      ]
+    }
+  },
+  "config": {
+    "ipfsGateways": ["https://ipfs.io/ipfs/"]
+  },
+  "network": {
+    "https://ipfs.io/ipfs/bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png": {
+      "status": 502,
+      "bodyBase64": "",
+      "contentType": "text/plain"
+    }
+  },
+  "rules": {
+    "media/reachable": {
+      "enabled": false
+    },
+    "media/mime": {
+      "enabled": false
+    },
+    "media/size": {
+      "enabled": false
+    }
+  }
+}

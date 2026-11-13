@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "baseUrl": ".",
+    "types": ["node"],
+    "paths": {
+      "@nft-lint/core": ["packages/core/src/index.ts"],
+      "@nft-lint/rules-evm": ["packages/rules-evm/src/index.ts"],
+      "@nft-lint/rules-solana": ["packages/rules-solana/src/index.ts"],
+      "@nft-lint/rules-media": ["packages/rules-media/src/index.ts"],
+      "@nft-lint/fetchers": ["packages/fetchers/src/index.ts"],
+      "@nft-lint/preset": ["packages/preset/src/index.ts"],
+      "nft-lint": ["packages/cli/src/index.ts"]
+    }
+  },
+  "include": ["packages/*/src/**/*.ts", "tests/**/*.ts", "scripts/**/*.ts", "vitest.config.ts"],
+  "exclude": ["packages/web/**", "**/dist/**"]
+}

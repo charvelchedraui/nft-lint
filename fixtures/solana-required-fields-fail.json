@@ -1,0 +1,20 @@
+{
+  "rule": "solana/required-fields",
+  "kind": "fail",
+  "input": {
+    "json": {
+      "name": "Glass Finch",
+      "symbol": "FINCH",
+      "description": "Kiln-fired glass bird.",
+      "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "attributes": [
+        {
+          "trait_type": "Plumage",
+          "value": "Amber"
+        }
+      ],
+      "seller_fee_basis_points": 500
+    },
+    "standard": "metaplex-token-metadata"
+  }
+}

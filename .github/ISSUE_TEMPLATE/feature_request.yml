@@ -1,0 +1,16 @@
+name: Feature
+description: A rule, flag, or output change
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed check or behavior
+    validations:
+      required: true

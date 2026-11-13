@@ -1,0 +1,41 @@
+{
+  "name": "@nft-lint/core",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charvelchedraui/nft-lint.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/charvelchedraui/nft-lint#readme",
+  "bugs": {
+    "url": "https://github.com/charvelchedraui/nft-lint/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "description": "Rule engine for NFT Lint. Detects a metadata standard and runs rule packs.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "multiformats": "^13.4.1"
+  }
+}

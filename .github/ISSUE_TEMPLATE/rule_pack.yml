@@ -1,0 +1,29 @@
+name: Rule pack
+description: Add a chain that is still a stub
+title: "Rule pack: "
+labels: ["good first issue", "help wanted", "rule-pack"]
+body:
+  - type: dropdown
+    id: chain
+    attributes:
+      label: Chain
+      options:
+        - Tezos (TZIP-21)
+        - Bitcoin Ordinals
+        - TON (TEP-64)
+        - Flow
+        - Tron (TRC-721)
+        - Cardano (CIP-25 / CIP-68)
+        - Algorand (ARC-3 / ARC-19 / ARC-69)
+        - Sui
+        - Aptos
+        - Stargaze (cw721)
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: standard
+    attributes:
+      label: Standard and the fields you will check
+    validations:
+      required: true

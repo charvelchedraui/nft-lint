@@ -1,0 +1,8 @@
+{
+  "rule": "common/metadata-fetch",
+  "kind": "fail",
+  "input": {
+    "url": "https://example.com/1.json"
+  },
+  "offline": true
+}

@@ -1,0 +1,44 @@
+name: NFT Lint
+description: Validate NFT metadata with nft-lint
+inputs:
+  target:
+    description: JSON file, directory, metadata URL, or chain:contract:tokenId
+    required: true
+  version:
+    description: nft-lint version on npm
+    required: false
+    default: "0.1.0"
+  offline:
+    description: Skip network rules
+    required: false
+    default: "false"
+  strict:
+    description: Fail the job when warnings are present
+    required: false
+    default: "false"
+  format:
+    description: pretty, json, or sarif
+    required: false
+    default: "pretty"
+runs:
+  using: composite
+  steps:
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+    - name: Lint metadata
+      shell: bash
+      env:
+        NFT_LINT_TARGET: ${{ inputs.target }}
+        NFT_LINT_VERSION: ${{ inputs.version }}
+        NFT_LINT_OFFLINE: ${{ inputs.offline }}
+        NFT_LINT_STRICT: ${{ inputs.strict }}
+        NFT_LINT_FORMAT: ${{ inputs.format }}
+      run: |
+        args=("$NFT_LINT_TARGET")
+        if [ "$NFT_LINT_OFFLINE" = "true" ]; then args+=(--offline); fi
+        if [ "$NFT_LINT_STRICT" = "true" ]; then args+=(--strict); fi
+        if [ "$NFT_LINT_FORMAT" = "json" ]; then args+=(--json); fi
+        if [ "$NFT_LINT_FORMAT" = "sarif" ]; then args+=(--sarif); fi
+        npx --yes "nft-lint@${NFT_LINT_VERSION}" "${args[@]}"

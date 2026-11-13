@@ -1,0 +1,44 @@
+{
+  "rule": "evm/eip2981",
+  "kind": "pass",
+  "input": {
+    "json": {
+      "name": "Glass Finch",
+      "description": "Kiln-fired glass bird.",
+      "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "external_url": "https://gallery.example/finch/1",
+      "background_color": "e8dcc8",
+      "attributes": [
+        {
+          "trait_type": "Plumage",
+          "value": "Amber"
+        },
+        {
+          "trait_type": "Edition",
+          "display_type": "number",
+          "value": 1
+        }
+      ]
+    },
+    "contract": "0x2222222222222222222222222222222222222222",
+    "onChain": {
+      "kind": "erc-721",
+      "tokenUri": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.json",
+      "supportsErc721": true,
+      "supports2981": true,
+      "royalty": {
+        "receiver": "0x1111111111111111111111111111111111111111",
+        "salePrice": "10000",
+        "amount": "500"
+      },
+      "contractUri": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/contract.json",
+      "contractMetadata": {
+        "name": "Glass Finch",
+        "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+        "seller_fee_basis_points": 500,
+        "fee_recipient": "0x1111111111111111111111111111111111111111"
+      }
+    },
+    "standard": "erc-721"
+  }
+}

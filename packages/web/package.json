@@ -1,0 +1,45 @@
+{
+  "name": "@nft-lint/web",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charvelchedraui/nft-lint.git",
+    "directory": "packages/web"
+  },
+  "homepage": "https://github.com/charvelchedraui/nft-lint#readme",
+  "bugs": {
+    "url": "https://github.com/charvelchedraui/nft-lint/issues"
+  },
+  "private": true,
+  "description": "Browser page that runs nft-lint on pasted JSON and URLs.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 43123 --strictPort",
+    "build": "vite build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "preview": "vite preview --host 0.0.0.0 --port 43123 --strictPort"
+  },
+  "dependencies": {
+    "@nft-lint/core": "workspace:*",
+    "@nft-lint/preset": "workspace:*",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.3.1",
+    "class-variance-authority": "^0.7.1",
+    "lucide-react": "^0.553.0",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-label": "^2.1.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.16",
+    "@vitejs/plugin-react": "^5.1.0",
+    "tailwindcss": "^4.1.16",
+    "vite": "^7.2.2"
+  }
+}

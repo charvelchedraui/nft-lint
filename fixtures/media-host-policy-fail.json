@@ -1,0 +1,24 @@
+{
+  "rule": "media/host-policy",
+  "kind": "fail",
+  "input": {
+    "json": {
+      "name": "Glass Finch",
+      "description": "Kiln-fired glass bird.",
+      "image": "https://cdn.example/finch.png",
+      "external_url": "https://gallery.example/finch/1",
+      "background_color": "e8dcc8",
+      "attributes": [
+        {
+          "trait_type": "Plumage",
+          "value": "Amber"
+        },
+        {
+          "trait_type": "Edition",
+          "display_type": "number",
+          "value": 1
+        }
+      ]
+    }
+  }
+}
