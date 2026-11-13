@@ -21,7 +21,7 @@
   "files": [
     "dist"
   ],
-  "description": "Flow MetadataViews (stub).",
+  "description": "Flow MetadataViews rules.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

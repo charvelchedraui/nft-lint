@@ -1,0 +1,63 @@
+{
+  "rule": "flow/traits",
+  "kind": "pass",
+  "input": {
+    "json": {
+      "display": {
+        "name": "Glass Finch",
+        "description": "Kiln-fired glass bird.",
+        "thumbnail": {
+          "cid": "bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi",
+          "path": "1.png"
+        }
+      },
+      "externalURL": "https://gallery.example/finch",
+      "collectionDisplay": {
+        "name": "Glass Finch",
+        "description": "Kiln-fired glass bird.",
+        "externalURL": "https://gallery.example/finch",
+        "squareImage": {
+          "file": {
+            "cid": "bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi",
+            "path": "1.png"
+          },
+          "mediaType": "image/png"
+        },
+        "bannerImage": {
+          "file": {
+            "url": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png"
+          },
+          "mediaType": "image/png"
+        }
+      },
+      "royalties": [
+        {
+          "receiver": "0x1d7e57aa55817448",
+          "cut": 0.05,
+          "description": "Creator"
+        }
+      ],
+      "editions": [
+        {
+          "name": "Set",
+          "number": 1,
+          "max": 100
+        }
+      ],
+      "traits": [
+        {
+          "name": "Plumage",
+          "value": "Amber"
+        }
+      ],
+      "medias": [
+        {
+          "file": {
+            "url": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png"
+          },
+          "mediaType": "image/png"
+        }
+      ]
+    }
+  }
+}
