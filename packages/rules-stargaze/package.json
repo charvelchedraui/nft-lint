@@ -21,7 +21,7 @@
   "files": [
     "dist"
   ],
-  "description": "Stargaze cw721 metadata (stub).",
+  "description": "Stargaze cw721 and sg721 metadata rules.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

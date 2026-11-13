@@ -1,0 +1,10 @@
+{
+  "rule": "stargaze/metadata",
+  "kind": "fail",
+  "input": {
+    "json": {
+      "extension": {}
+    },
+    "chain": "stargaze"
+  }
+}
