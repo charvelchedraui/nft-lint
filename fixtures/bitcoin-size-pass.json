@@ -1,0 +1,21 @@
+{
+  "rule": "bitcoin/size",
+  "kind": "pass",
+  "input": {
+    "json": {
+      "name": "Glass Finch",
+      "description": "Kiln-fired glass bird.",
+      "inscription_id": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1fi0",
+      "content_type": "image/png",
+      "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "content_length": 20000,
+      "parent": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1fi1",
+      "attributes": [
+        {
+          "trait_type": "Plumage",
+          "value": "Amber"
+        }
+      ]
+    }
+  }
+}

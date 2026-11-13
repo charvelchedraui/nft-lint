@@ -1,0 +1,19 @@
+{
+  "rule": "bitcoin/required-fields",
+  "kind": "fail",
+  "input": {
+    "chain": "bitcoin",
+    "json": {
+      "name": "Glass Finch",
+      "description": "Kiln-fired glass bird.",
+      "content_type": "image/png",
+      "content_length": 20000,
+      "attributes": [
+        {
+          "trait_type": "Plumage",
+          "value": "Amber"
+        }
+      ]
+    }
+  }
+}

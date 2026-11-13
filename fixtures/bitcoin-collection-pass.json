@@ -1,0 +1,16 @@
+{
+  "rule": "bitcoin/collection",
+  "kind": "pass",
+  "input": {
+    "json": {
+      "name": "Glass Finch",
+      "description": "Kiln-fired glass bird.",
+      "slug": "glass-finch",
+      "inscription_icon": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1fi0",
+      "supply": 100,
+      "website_link": "https://gallery.example/finch",
+      "twitter_link": "https://twitter.com/finch",
+      "discord_link": "https://discord.gg/finch"
+    }
+  }
+}

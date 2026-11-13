@@ -1,15 +1,5 @@
 # @nft-lint/rules-bitcoin
 
-Bitcoin Ordinals. **Status: stub.**
+Bitcoin Ordinals inscription and collection metadata. Status: stable.
 
-This package is a placeholder so the rule-pack layout is real and a contributor can land the checks without inventing the package.
-
-## TODO
-
-- Accept an inscription id or a metadata JSON document used by Ordinals collections.
-- Validate the inscription content type and that the metadata JSON points at an inscription content URL the indexer can resolve.
-- Check collection metadata fields used by common Ordinals explorers (name, description, image or inscription id).
-- Keep all HTTP calls behind NetworkClient. Do not require a paid ordinals API.
-- Add pass and fail fixtures and a docs page per rule.
-
-Wire finished rules into `src/index.ts` as a `Rule[]`, add pass and fail fixtures, and add a page under `docs/rules/bitcoin/`. The registry test fails a PR that adds a rule without both.
+Checks name, inscription ids, parent and delegate links, content types, Magic Eden collection fields, and a 400000 byte marketplace size warning. There is no single on-chain metadata standard. The collection object follows the metadata marketplaces index.

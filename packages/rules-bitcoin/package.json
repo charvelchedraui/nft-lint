@@ -21,7 +21,7 @@
   "files": [
     "dist"
   ],
-  "description": "Bitcoin Ordinals metadata (stub).",
+  "description": "Bitcoin Ordinals inscription and collection metadata rules.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
