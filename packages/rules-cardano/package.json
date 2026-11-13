@@ -21,7 +21,7 @@
   "files": [
     "dist"
   ],
-  "description": "Cardano CIP-25 and CIP-68 (stub).",
+  "description": "Cardano CIP-25, CIP-68, and CIP-27 metadata rules.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

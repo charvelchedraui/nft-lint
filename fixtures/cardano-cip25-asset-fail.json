@@ -1,0 +1,17 @@
+{
+  "rule": "cardano/cip25-asset",
+  "kind": "fail",
+  "input": {
+    "json": {
+      "721": {
+        "zz": {
+          "GlassFinch": {
+            "name": "Glass Finch",
+            "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+            "mediaType": "image/png"
+          }
+        }
+      }
+    }
+  }
+}

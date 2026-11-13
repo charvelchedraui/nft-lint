@@ -1,0 +1,33 @@
+{
+  "rule": "cardano/cip25-chunks",
+  "kind": "fail",
+  "input": {
+    "json": {
+      "721": {
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+          "GlassFinch": {
+            "name": "Glass Finch",
+            "image": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "mediaType": "image/png",
+            "description": "Kiln-fired glass bird.",
+            "files": [
+              {
+                "name": "Glass Finch",
+                "mediaType": "image/png",
+                "src": [
+                  "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbz",
+                  "di/1.png"
+                ]
+              }
+            ]
+          }
+        },
+        "version": "1"
+      },
+      "777": {
+        "rate": "0.05",
+        "addr": "addr1qaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    }
+  }
+}

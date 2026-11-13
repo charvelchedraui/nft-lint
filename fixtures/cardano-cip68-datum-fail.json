@@ -1,0 +1,21 @@
+{
+  "rule": "cardano/cip68-datum",
+  "kind": "fail",
+  "input": {
+    "standard": "cip-68",
+    "json": {
+      "version": 9,
+      "name": "Glass Finch",
+      "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "mediaType": "image/png",
+      "description": "Kiln-fired glass bird.",
+      "files": [
+        {
+          "name": "Glass Finch",
+          "mediaType": "image/png",
+          "src": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png"
+        }
+      ]
+    }
+  }
+}
