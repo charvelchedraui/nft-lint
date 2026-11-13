@@ -1,0 +1,25 @@
+{
+  "rule": "tron/token-uri",
+  "kind": "fail",
+  "input": {
+    "chain": "tron",
+    "contract": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
+    "json": {
+      "name": "Glass Finch",
+      "description": "Kiln-fired glass bird.",
+      "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "external_url": "https://gallery.example/finch",
+      "background_color": "e8dcc8",
+      "attributes": [
+        {
+          "trait_type": "Plumage",
+          "value": "Amber"
+        }
+      ]
+    },
+    "onChain": {
+      "kind": "trc-721",
+      "uri": "https://tronscan.org/#/token721/T/1"
+    }
+  }
+}

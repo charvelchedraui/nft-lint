@@ -1,0 +1,41 @@
+{
+  "rule": "tron/token-uri-html",
+  "kind": "pass",
+  "input": {
+    "chain": "tron",
+    "contract": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
+    "json": {
+      "name": "Glass Finch",
+      "description": "Kiln-fired glass bird.",
+      "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "external_url": "https://gallery.example/finch",
+      "background_color": "e8dcc8",
+      "attributes": [
+        {
+          "trait_type": "Plumage",
+          "value": "Amber"
+        }
+      ]
+    },
+    "onChain": {
+      "kind": "trc-721",
+      "uri": "https://cdn.example/1.json"
+    }
+  },
+  "config": {
+    "ipfsGateways": ["https://ipfs.io/ipfs/"]
+  },
+  "network": {
+    "https://ipfs.io/ipfs/bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png": {
+      "status": 200,
+      "bodyBase64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+      "contentType": "image/png",
+      "contentLength": 70
+    },
+    "https://cdn.example/1.json": {
+      "status": 200,
+      "bodyBase64": "eyJuYW1lIjoiR2xhc3MgRmluY2gifQ==",
+      "contentType": "application/json"
+    }
+  }
+}

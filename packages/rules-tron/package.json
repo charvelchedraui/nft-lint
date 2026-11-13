@@ -21,7 +21,7 @@
   "files": [
     "dist"
   ],
-  "description": "Tron TRC-721 metadata (stub).",
+  "description": "Tron TRC-721 metadata rules.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
