@@ -1,0 +1,14 @@
+{
+  "rule": "sui/urls",
+  "kind": "fail",
+  "input": {
+    "json": {
+      "name": "Glass Finch",
+      "description": "Kiln-fired glass bird.",
+      "image_url": "http://example.com/finch.png",
+      "project_url": "https://gallery.example/finch",
+      "creator": "Kiln",
+      "kiosk_id": "0x0000000000000000000000000000000000000000000000000000000000000002"
+    }
+  }
+}

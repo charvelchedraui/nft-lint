@@ -21,7 +21,7 @@
   "files": [
     "dist"
   ],
-  "description": "Sui Display metadata (stub).",
+  "description": "Sui Display and Kiosk metadata rules.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

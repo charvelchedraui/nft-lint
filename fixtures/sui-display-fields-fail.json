@@ -1,0 +1,13 @@
+{
+  "rule": "sui/display-fields",
+  "kind": "fail",
+  "input": {
+    "json": {
+      "description": "Kiln-fired glass bird.",
+      "image_url": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "project_url": "https://gallery.example/finch",
+      "creator": "Kiln",
+      "kiosk_id": "0x0000000000000000000000000000000000000000000000000000000000000002"
+    }
+  }
+}
