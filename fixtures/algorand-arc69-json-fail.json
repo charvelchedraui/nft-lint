@@ -1,0 +1,15 @@
+{
+  "rule": "algorand/arc69-json",
+  "kind": "fail",
+  "input": {
+    "json": {
+      "standard": "arc69",
+      "description": "Kiln-fired glass bird.",
+      "external_url": "https://gallery.example/finch",
+      "media_url": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "mime_type": "image/png",
+      "properties": ["Plumage"]
+    },
+    "standard": "arc-69"
+  }
+}

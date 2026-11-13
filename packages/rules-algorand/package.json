@@ -21,7 +21,7 @@
   "files": [
     "dist"
   ],
-  "description": "Algorand ARC-3, ARC-19, and ARC-69 (stub).",
+  "description": "Algorand ARC-3, ARC-19, and ARC-69 metadata rules.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

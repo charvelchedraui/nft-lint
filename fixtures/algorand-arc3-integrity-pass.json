@@ -1,0 +1,19 @@
+{
+  "rule": "algorand/arc3-integrity",
+  "kind": "pass",
+  "input": {
+    "json": {
+      "name": "Glass Finch",
+      "description": "Kiln-fired glass bird.",
+      "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "image_mimetype": "image/png",
+      "image_integrity": "sha256-xBTNDiBN6XT3N1PH4o12OOezaRu4saK6trJbt/7Xznc=",
+      "properties": {
+        "Plumage": "Amber"
+      },
+      "asset_name": "FINCH",
+      "unit_name": "FIN",
+      "url": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png"
+    }
+  }
+}
