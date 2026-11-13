@@ -46,9 +46,17 @@ export const collectionRule = defineRule({
     const json = ctx.json;
     if (!json) return;
     const collectionShaped =
-      "slug" in json || "supply" in json || "inscription_icon" in json || "twitter_link" in json;
+      "slug" in json ||
+      "supply" in json ||
+      "inscription_icon" in json ||
+      "icon_inscription" in json ||
+      "twitter_link" in json;
     if (!collectionShaped) return;
-    if ("slug" in json && (typeof json.slug !== "string" || !SLUG.test(json.slug))) {
+    if (
+      json.slug != null &&
+      json.slug !== "" &&
+      (typeof json.slug !== "string" || !SLUG.test(json.slug))
+    ) {
       ctx.report({
         path: "slug",
         message:
@@ -64,10 +72,12 @@ export const collectionRule = defineRule({
         });
       }
     }
-    if ("inscription_icon" in json && !isInscriptionId(json.inscription_icon)) {
+    const icon = json.inscription_icon ?? json.icon_inscription;
+    if (icon != null && icon !== "" && !isInscriptionId(icon)) {
       ctx.report({
-        path: "inscription_icon",
-        message: "inscription_icon must be the inscription id of the collection cover, not a URL.",
+        path: json.inscription_icon != null ? "inscription_icon" : "icon_inscription",
+        message:
+          "The collection cover must be an inscription id (inscription_icon or icon_inscription), not a URL.",
       });
     }
     for (const field of ["website_link", "twitter_link", "discord_link"] as const) {

@@ -28,11 +28,15 @@ export const requiredFieldsRule = defineRule({
       });
     }
     const hasImage = typeof json.image === "string" && json.image.trim() !== "";
-    const hasId = isInscriptionId(json.inscription_id) || isInscriptionId(json.inscription_icon);
+    const hasId =
+      isInscriptionId(json.inscription_id) ||
+      isInscriptionId(json.inscription_icon) ||
+      isInscriptionId(json.icon_inscription);
     if (
       !hasImage &&
       !isInscriptionId(json.inscription_id) &&
-      !isInscriptionId(json.inscription_icon)
+      !isInscriptionId(json.inscription_icon) &&
+      !isInscriptionId(json.icon_inscription)
     ) {
       ctx.report({
         path: "image",

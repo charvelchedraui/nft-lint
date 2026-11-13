@@ -68,6 +68,30 @@ describe("multichain readers", () => {
     ).toBeNull();
   });
 
+  it("builds ARC-19 CIDs for raw, dag-pb v1, and dag-pb v0", () => {
+    expect(
+      algorandReserveCid(
+        "template-ipfs://{ipfscid:1:dag-pb:reserve:sha2-256}#arc3",
+        "LWQEUDZ4T5KAMW3UMZ74ECBGVJUMVDOF5A6OSWS3DDRLFGKC4DWHXN3DTU",
+      ),
+    ).toBe("bafybeic5ubfa6pe7kqdfw5dgp7baqjvkndfi3rpihtuvuwyy4kzjsqxa5q");
+    expect(
+      algorandReserveCid(
+        "template-ipfs://{ipfscid:1:raw:reserve:sha2-256}",
+        "C6XDMSA47APFXH3EXE6PUHHENQJC7UDRC643WWMLNO5HN3TQXAMR5XAES4",
+      ),
+    ).toBe("bafkreiaxvy3eqhhydznz6zfzht5bzzdmcix5a4ixxg5vtc3lxj3o44fyde");
+    expect(
+      algorandReserveCid(
+        "template-ipfs://{ipfscid:0:dag-pb:reserve:sha2-256}",
+        "H3E5BEA3MEWMAN7AF4MSGOI2HIPXYUHQCZT5TRGZJU6MWKRK3CFFRS5U3U",
+      ),
+    ).toBe("QmSZkUNZFGxShNFbfozD1GsXW74U2tdSqeRpKmPtfnAad7");
+    expect(
+      algorandReserveCid("template-ipfs://{ipfscid:0:raw:reserve:sha2-256}", "A".repeat(58)),
+    ).toBeNull();
+  });
+
   it("builds a CID from a reserve address whose checksum matches", () => {
     const digest = createHash("sha256").update("finch").digest();
     const checksum = createHash("sha512-256").update(digest).digest().subarray(28);

@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@nft-lint/core": "workspace:*",
+    "multiformats": "^13.4.1",
     "viem": "^2.39.0",
     "@metaplex-foundation/umi": "^1.2.0",
     "@metaplex-foundation/umi-bundle-defaults": "^1.2.0",

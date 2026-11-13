@@ -89,6 +89,9 @@ importers:
       '@nft-lint/core':
         specifier: workspace:*
         version: link:../core
+      multiformats:
+        specifier: ^13.4.1
+        version: 13.4.2
       viem:
         specifier: ^2.39.0
         version: 2.57.19(bufferutil@4.2.0)(typescript@5.9.3)(utf-8-validate@6.0.6)

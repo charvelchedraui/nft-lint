@@ -10,4 +10,10 @@ export const pack: RulePack = {
   rules: suiRules,
 };
 
-export { displayFieldsRule, kioskRule, templatesRule, urlsRule };
+export {
+  displayFieldsRule,
+  kioskRule,
+  templatesRule,
+  unresolvedDisplayExpressions,
+  urlsRule,
+} from "./rules.js";

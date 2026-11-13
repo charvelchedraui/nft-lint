@@ -6,8 +6,9 @@
   "timeoutMs": 15000,
   "ipfsGateways": [
     "https://ipfs.io/ipfs/",
-    "https://dweb.link/ipfs/",
-    "https://cloudflare-ipfs.com/ipfs/"
+    "https://ipfs.filebase.io/ipfs/",
+    "https://gateway.pinata.cloud/ipfs/",
+    "https://dweb.link/ipfs/"
   ],
   "rpc": {
     "base": ["https://mainnet.base.org"]

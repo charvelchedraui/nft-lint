@@ -23,6 +23,7 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:network": "NFT_LINT_NETWORK=1 vitest run tests/network.test.ts",
+    "live": "LIVE=1 vitest run tests/live.test.ts",
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write .",
     "rules:check": "vitest run tests/registry.test.ts",

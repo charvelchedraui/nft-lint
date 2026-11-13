@@ -12,6 +12,7 @@ export {
   defaultConfig,
   resolveConfig,
 } from "./config.js";
+export { isBech32 } from "./bech32.js";
 export { defineRule } from "./define-rule.js";
 export { detectStandard, familyOf, looksLikeMetaplex, looksLikeTezos } from "./detect.js";
 export { formatJson, formatMarkdown, formatPretty } from "./format.js";

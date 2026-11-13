@@ -3,7 +3,7 @@
 exports[`fixtures > algorand-arc3-fields-fail.json 1`] = `
 [
   {
-    "message": "image_mimetype is required with image and must be an image/* type, such as "image/png".",
+    "message": "image_mimetype must be an image/* type, such as "image/png".",
     "path": "image_mimetype",
     "ruleId": "algorand/arc3-fields",
     "severity": "error",
@@ -805,10 +805,10 @@ exports[`fixtures > stargaze-token-uri-pass.json 1`] = `[]`;
 exports[`fixtures > sui-display-fields-fail.json 1`] = `
 [
   {
-    "message": "name must be a non-empty string.",
+    "message": "name is empty. Display lists it as a suggested field; wallets fall back to raw object data.",
     "path": "name",
     "ruleId": "sui/display-fields",
-    "severity": "error",
+    "severity": "warn",
   },
 ]
 `;
@@ -831,7 +831,7 @@ exports[`fixtures > sui-kiosk-pass.json 1`] = `[]`;
 exports[`fixtures > sui-templates-fail.json 1`] = `
 [
   {
-    "message": "image_url still contains a Display template ({image_id}). Clients substitute {field} from the object; a leftover brace means the field was missing.",
+    "message": "image_url still contains a Display expression {image_id}. A rendered object should have substituted it. {{ and }} are literal braces and are ignored.",
     "path": "image_url",
     "ruleId": "sui/templates",
     "severity": "warn",

@@ -61,11 +61,20 @@ export const arc3FieldsRule = defineRule({
         });
       }
     }
-    if (typeof json.image_mimetype !== "string" || !json.image_mimetype.startsWith("image/")) {
+    if (!("image_mimetype" in json) || json.image_mimetype === "") {
       ctx.report({
         path: "image_mimetype",
+        severity: "warn",
         message:
-          'image_mimetype is required with image and must be an image/* type, such as "image/png".',
+          'image_mimetype is missing. ARC-3 recommends an image/* type, such as "image/png", next to image.',
+      });
+    } else if (
+      typeof json.image_mimetype !== "string" ||
+      !json.image_mimetype.startsWith("image/")
+    ) {
+      ctx.report({
+        path: "image_mimetype",
+        message: 'image_mimetype must be an image/* type, such as "image/png".',
       });
     }
     for (const field of ["animation_url", "external_url"] as const) {

@@ -113,12 +113,13 @@ export const royaltyRule = defineRule({
       ctx.report({
         path: "royalty_params",
         message:
-          "royalty_params must be {numerator, denominator, destination}, matching the TEP-62 get method.",
+          "royalty_params must include a numerator and denominator (or royalty_factor and royalty_base) and a destination address. TEP-62's royalty_params get method returns numerator, denominator, destination.",
       });
       return;
     }
-    const numerator = royalty.numerator;
-    const denominator = royalty.denominator;
+    const numerator = royalty.numerator ?? royalty.royalty_factor ?? royalty.factor;
+    const denominator = royalty.denominator ?? royalty.royalty_base ?? royalty.base;
+    const destination = royalty.destination ?? royalty.royalty_address ?? royalty.address;
     if (
       typeof numerator !== "number" ||
       typeof denominator !== "number" ||
@@ -135,10 +136,11 @@ export const royaltyRule = defineRule({
       });
       return;
     }
-    if (typeof royalty.destination !== "string" || !isTonAddress(royalty.destination)) {
+    if (typeof destination !== "string" || !isTonAddress(destination)) {
       ctx.report({
         path: "royalty_params.destination",
-        message: "destination must be a user-friendly TON address (EQ/UQ) or a raw 0: address.",
+        message:
+          "destination (or royalty_address) must be a user-friendly TON address (EQ/UQ) or a raw 0: address.",
       });
     }
     const percent = (numerator / denominator) * 100;

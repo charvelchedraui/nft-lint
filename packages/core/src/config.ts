@@ -3,8 +3,9 @@ import { chains } from "./chains.js";
 
 export const DEFAULT_IPFS_GATEWAYS = [
   "https://ipfs.io/ipfs/",
+  "https://ipfs.filebase.io/ipfs/",
+  "https://gateway.pinata.cloud/ipfs/",
   "https://dweb.link/ipfs/",
-  "https://cloudflare-ipfs.com/ipfs/",
 ];
 
 export const DEFAULT_MAX_IMAGE_BYTES = 10 * 1024 * 1024;

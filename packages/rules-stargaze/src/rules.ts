@@ -1,12 +1,12 @@
 import {
   defineRule,
+  isBech32,
   isRecord,
   metadataUriIssue,
   ruleDocUrl,
   type RuleContext,
 } from "@nft-lint/core";
 
-const STARS = /^stars1[02-9ac-hj-np-z]{38,}$/;
 const SG721_MAX_SHARE = 0.1;
 
 function metadataRoot(json: Record<string, unknown>): Record<string, unknown> {
@@ -168,10 +168,13 @@ export const royaltyRule = defineRule({
       });
     }
     const address = royalty.payment_address ?? royalty.address;
-    if (typeof address !== "string" || !STARS.test(address)) {
+    const checksumOk =
+      typeof address === "string" && (isBech32(address, "stars") || isBech32(address, "cosmos"));
+    if (!checksumOk) {
       ctx.report({
         path: "royalty_info.payment_address",
-        message: "payment_address must be a Stargaze bech32 address starting with stars1.",
+        message:
+          "payment_address must be a stars1 or cosmos1 bech32 address with a valid checksum. The prefix alone is not enough.",
       });
     }
   },

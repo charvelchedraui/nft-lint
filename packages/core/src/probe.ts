@@ -145,22 +145,37 @@ export async function fetchMetadataDocument(
   gateways: string[],
 ): Promise<{ raw: string; json: unknown; resolvedUrl: string }> {
   const parsed = parseUri(uri);
-  const url = primaryFetchUrl(parsed, gateways);
-  if (!url) throw new Error(`Cannot fetch metadata URI ${uri}.`);
-  const response = await network.fetch(url);
-  if (!response.ok) {
-    throw new Error(`Metadata URL returned HTTP ${response.status} for ${url}.`);
+  const urls =
+    parsed.kind === "ipfs"
+      ? gatewayUrls(parsed, gateways)
+      : [primaryFetchUrl(parsed, gateways)].filter((url): url is string => Boolean(url));
+  if (urls.length === 0) throw new Error(`Cannot fetch metadata URI ${uri}.`);
+  const errors: string[] = [];
+  let reached: string | undefined;
+  for (const url of urls) {
+    try {
+      const response = await network.fetch(url);
+      if (!response.ok) {
+        errors.push(`Metadata URL returned HTTP ${response.status} for ${url}.`);
+        continue;
+      }
+      let raw: string;
+      try {
+        raw = new TextDecoder("utf-8", { fatal: true }).decode(response.body);
+      } catch {
+        errors.push(`Metadata at ${url} is not valid UTF-8.`);
+        continue;
+      }
+      try {
+        return { raw, json: JSON.parse(raw) as unknown, resolvedUrl: url };
+      } catch (error) {
+        const detail = error instanceof Error ? error.message : "not JSON";
+        reached = `Metadata at ${url} is not JSON (${detail}).`;
+        errors.push(reached);
+      }
+    } catch (error) {
+      errors.push(error instanceof Error ? error.message : String(error));
+    }
   }
-  let raw: string;
-  try {
-    raw = new TextDecoder("utf-8", { fatal: true }).decode(response.body);
-  } catch {
-    throw new Error(`Metadata at ${url} is not valid UTF-8.`);
-  }
-  try {
-    return { raw, json: JSON.parse(raw) as unknown, resolvedUrl: url };
-  } catch (error) {
-    const detail = error instanceof Error ? error.message : "not JSON";
-    throw new Error(`Metadata at ${url} is not JSON (${detail}).`);
-  }
+  throw new Error(reached ?? errors.at(-1) ?? `Cannot fetch metadata URI ${uri}.`);
 }

@@ -7,7 +7,6 @@ import {
 } from "@nft-lint/core";
 
 const SUI_ADDRESS = /^0x[0-9a-fA-F]{1,64}$/;
-const TEMPLATE = /\{[a-zA-Z_][\w.]*\}/;
 
 export function displayMap(json: Record<string, unknown>): Record<string, unknown> | null {
   if (isRecord(json.display) && isRecord(json.display.data)) return json.display.data;
@@ -35,7 +34,7 @@ function checkUrl(ctx: RuleContext, path: string, value: unknown, required: bool
     ctx.report({ path, message: `${path} must be a string.` });
     return;
   }
-  if (TEMPLATE.test(value)) return;
+  if (unresolvedDisplayExpressions(value).length > 0) return;
   const issue = metadataUriIssue(value);
   if (issue) ctx.report({ path, message: `${path} ${issue}` });
 }
@@ -58,19 +57,14 @@ export const displayFieldsRule = defineRule({
       });
       return;
     }
-    for (const field of ["name", "description"] as const) {
+    for (const field of ["name", "description", "image_url"] as const) {
       if (typeof map[field] !== "string" || map[field].trim() === "") {
-        ctx.report({ path: field, message: `${field} must be a non-empty string.` });
+        ctx.report({
+          path: field,
+          severity: "warn",
+          message: `${field} is empty. Display lists it as a suggested field; wallets fall back to raw object data.`,
+        });
       }
-    }
-    if (typeof map.description === "string" && map.description === "") {
-      ctx.report({ path: "description", severity: "warn", message: "description is empty." });
-    }
-    if (typeof map.image_url !== "string" || map.image_url.trim() === "") {
-      ctx.report({
-        path: "image_url",
-        message: "image_url is required. Sui Display does not read an image field.",
-      });
     }
   },
 });
@@ -88,16 +82,24 @@ export const templatesRule = defineRule({
     if (!map) return;
     for (const [key, value] of Object.entries(map)) {
       if (typeof value !== "string") continue;
-      const left = value.includes("{") && !value.includes("{{");
-      if (left && TEMPLATE.test(value)) {
+      for (const expression of unresolvedDisplayExpressions(value)) {
         ctx.report({
           path: key,
-          message: `${key} still contains a Display template (${value.match(TEMPLATE)?.[0]}). Clients substitute {field} from the object; a leftover brace means the field was missing.`,
+          message: `${key} still contains a Display expression {${expression}}. A rendered object should have substituted it. {{ and }} are literal braces and are ignored.`,
         });
       }
     }
   },
 });
+
+/**
+ * Display V2 expressions still present after `{{` and `}}` are read as literal braces.
+ * `{field}`, `{field.nested}`, `{field | 'default'}`, and `{field:hex}` all count.
+ */
+export function unresolvedDisplayExpressions(value: string): string[] {
+  const stripped = value.replaceAll("{{", "\u0000").replaceAll("}}", "\u0001");
+  return [...stripped.matchAll(/\{([^{}]*)\}/g)].map((match) => (match[1] ?? "").trim());
+}
 
 export const urlsRule = defineRule({
   id: "sui/urls",

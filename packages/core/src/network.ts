@@ -25,8 +25,7 @@ export function createNetworkClient(options: {
       response.headers.forEach((value, key) => {
         headers[key.toLowerCase()] = value;
       });
-      const contentLength = Number(headers["content-length"] ?? "");
-      const cap = Number.isFinite(contentLength) && contentLength > 8192 ? 8192 : options.maxBytes;
+      const cap = options.maxBytes;
       const { body, truncated } = await readBody(response, cap);
       return {
         ok: response.ok,

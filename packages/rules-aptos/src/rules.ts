@@ -25,6 +25,16 @@ const PRIMITIVE = new Set([
   "vector<address>",
 ]);
 
+/** Move u64 fields arrive as decimal strings from the fullnode. */
+function integerField(value: unknown): number | null {
+  if (typeof value === "number" && Number.isInteger(value)) return value;
+  if (typeof value === "string" && /^(?:0|[1-9]\d*)$/.test(value)) {
+    const parsed = Number(value);
+    if (Number.isSafeInteger(parsed)) return parsed;
+  }
+  return null;
+}
+
 function checkLength(
   ctx: RuleContext,
   path: string,
@@ -214,14 +224,12 @@ export const royaltyRule = defineRule({
       });
       return;
     }
-    const numerator = royalty.numerator ?? royalty.royalty_points_numerator;
-    const denominator = royalty.denominator ?? royalty.royalty_points_denominator;
+    const numerator = integerField(royalty.numerator ?? royalty.royalty_points_numerator);
+    const denominator = integerField(royalty.denominator ?? royalty.royalty_points_denominator);
     const payee = royalty.payee_address;
     if (
-      typeof numerator !== "number" ||
-      typeof denominator !== "number" ||
-      !Number.isInteger(numerator) ||
-      !Number.isInteger(denominator) ||
+      numerator === null ||
+      denominator === null ||
       denominator === 0 ||
       numerator < 0 ||
       numerator > denominator

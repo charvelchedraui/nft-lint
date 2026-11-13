@@ -1,4 +1,4 @@
-import { defineRule, isRecord, ruleDocUrl, type RuleContext } from "@nft-lint/core";
+import { defineRule, isBech32, isRecord, ruleDocUrl, type RuleContext } from "@nft-lint/core";
 import {
   CHUNK_BYTES,
   POLICY_ID,
@@ -317,11 +317,11 @@ export const cip27Rule = defineRule({
         });
       }
     });
-    if (!ADDR.test(chunks.joined)) {
+    if (!ADDR.test(chunks.joined) || !isBech32(chunks.joined)) {
       ctx.report({
         path: "777.addr",
         message:
-          "addr must join into a bech32 address starting with addr1, addr_test1, stake1, or stake_test1.",
+          "addr must join into a bech32 address (addr, addr_test, stake, or stake_test) with a valid checksum.",
       });
     }
   },
