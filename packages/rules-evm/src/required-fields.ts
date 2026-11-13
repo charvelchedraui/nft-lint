@@ -2,8 +2,8 @@ import { defineRule, ercMetadataSchema, isRecord, ruleDocUrl, schemaIssues } fro
 
 export const requiredFieldsRule = defineRule({
   id: "evm/required-fields",
-  chains: ["evm"],
-  standards: ["erc-721", "erc-1155"],
+  chains: ["evm", "tron"],
+  standards: ["erc-721", "erc-1155", "trc-721"],
   severity: "error",
   docs: ruleDocUrl("evm/required-fields"),
   needsNetwork: false,

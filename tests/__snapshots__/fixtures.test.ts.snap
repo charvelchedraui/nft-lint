@@ -1,5 +1,295 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`fixtures > algorand-arc3-fields-fail.json 1`] = `
+[
+  {
+    "message": "image_mimetype is required with image and must be an image/* type, such as "image/png".",
+    "path": "image_mimetype",
+    "ruleId": "algorand/arc3-fields",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > algorand-arc3-fields-pass.json 1`] = `[]`;
+
+exports[`fixtures > algorand-arc3-integrity-fail.json 1`] = `
+[
+  {
+    "message": "image_integrity must be a W3C subresource integrity value: sha256- and base64 of the raw SHA-256 digest.",
+    "path": "image_integrity",
+    "ruleId": "algorand/arc3-integrity",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > algorand-arc3-integrity-pass.json 1`] = `[]`;
+
+exports[`fixtures > algorand-arc19-template-fail.json 1`] = `
+[
+  {
+    "message": "{ipfscid:9:raw:reserve:sha2-256} is not a valid ARC-19 placeholder. Use {ipfscid:<0|1>:<codec>:reserve:sha2-256}, for example {ipfscid:1:raw:reserve:sha2-256}.",
+    "path": "url",
+    "ruleId": "algorand/arc19-template",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > algorand-arc19-template-pass.json 1`] = `[]`;
+
+exports[`fixtures > algorand-arc69-json-fail.json 1`] = `
+[
+  {
+    "message": "ARC-69 properties must be an object of trait name to value, not an array.",
+    "path": "properties",
+    "ruleId": "algorand/arc69-json",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > algorand-arc69-json-pass.json 1`] = `[]`;
+
+exports[`fixtures > algorand-asa-limits-fail.json 1`] = `
+[
+  {
+    "message": "ASA name is 40 bytes. Algorand allows at most 32.",
+    "path": "asset_name",
+    "ruleId": "algorand/asa-limits",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > algorand-asa-limits-pass.json 1`] = `[]`;
+
+exports[`fixtures > aptos-collection-fail.json 1`] = `
+[
+  {
+    "message": "collection description must be a string.",
+    "path": "collection.description",
+    "ruleId": "aptos/collection",
+    "severity": "error",
+  },
+  {
+    "message": "collection name is required.",
+    "path": "collection.name",
+    "ruleId": "aptos/collection",
+    "severity": "error",
+  },
+  {
+    "message": "collection uri is required.",
+    "path": "collection.uri",
+    "ruleId": "aptos/collection",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > aptos-collection-pass.json 1`] = `[]`;
+
+exports[`fixtures > aptos-property-map-fail.json 1`] = `
+[
+  {
+    "message": "property map lengths differ: 1 keys, 0 values, 1 types.",
+    "path": "properties",
+    "ruleId": "aptos/property-map",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > aptos-property-map-pass.json 1`] = `[]`;
+
+exports[`fixtures > aptos-royalty-fail.json 1`] = `
+[
+  {
+    "message": "Royalty numerator must be an integer from 0 to denominator, and denominator must not be 0.",
+    "path": "royalty",
+    "ruleId": "aptos/royalty",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > aptos-royalty-pass.json 1`] = `[]`;
+
+exports[`fixtures > aptos-token-fields-fail.json 1`] = `
+[
+  {
+    "message": "Token name is required and must be a non-empty string.",
+    "path": "name",
+    "ruleId": "aptos/token-fields",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > aptos-token-fields-pass.json 1`] = `[]`;
+
+exports[`fixtures > aptos-uri-fail.json 1`] = `
+[
+  {
+    "message": "uri URI is not absolute.",
+    "path": "uri",
+    "ruleId": "aptos/uri",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > aptos-uri-pass.json 1`] = `[]`;
+
+exports[`fixtures > bitcoin-collection-fail.json 1`] = `
+[
+  {
+    "message": "slug must be lowercase words separated by hyphens, matching the collection directory name.",
+    "path": "slug",
+    "ruleId": "bitcoin/collection",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > bitcoin-collection-pass.json 1`] = `[]`;
+
+exports[`fixtures > bitcoin-content-type-fail.json 1`] = `
+[
+  {
+    "message": "content_type must be a MIME type such as image/png, text/html, or application/json.",
+    "path": "content_type",
+    "ruleId": "bitcoin/content-type",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > bitcoin-content-type-pass.json 1`] = `[]`;
+
+exports[`fixtures > bitcoin-inscription-id-fail.json 1`] = `
+[
+  {
+    "message": "inscription_id must be 64 lowercase hex characters, an "i", and an index, such as 0000000000000000000000000000000000000000000000000000000000000000i0.",
+    "path": "inscription_id",
+    "ruleId": "bitcoin/inscription-id",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > bitcoin-inscription-id-pass.json 1`] = `[]`;
+
+exports[`fixtures > bitcoin-required-fields-fail.json 1`] = `
+[
+  {
+    "message": "Provide image or a valid inscription_id (64 hex characters, then i, then the index). Explorers cannot render the item without one of them.",
+    "path": "image",
+    "ruleId": "bitcoin/required-fields",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > bitcoin-required-fields-pass.json 1`] = `[]`;
+
+exports[`fixtures > bitcoin-size-fail.json 1`] = `
+[
+  {
+    "message": "content_length is 900000 bytes. Inscriptions over 400000 bytes still confirm, but many indexers and marketplaces time out or refuse to render them.",
+    "path": "content_length",
+    "ruleId": "bitcoin/size",
+    "severity": "warn",
+  },
+]
+`;
+
+exports[`fixtures > bitcoin-size-pass.json 1`] = `[]`;
+
+exports[`fixtures > cardano-cip25-asset-fail.json 1`] = `
+[
+  {
+    "message": "Policy id "zz" must be 56 hex characters (28 bytes).",
+    "path": "721.zz",
+    "ruleId": "cardano/cip25-asset",
+    "severity": "error",
+  },
+  {
+    "message": "image chunk is 72 bytes. Cardano metadata strings are limited to 64 bytes; split the URI into an array.",
+    "path": "721.zz.GlassFinch.image",
+    "ruleId": "cardano/cip25-chunks",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > cardano-cip25-asset-pass.json 1`] = `[]`;
+
+exports[`fixtures > cardano-cip25-chunks-fail.json 1`] = `
+[
+  {
+    "message": "image chunk is 70 bytes. Cardano metadata strings are limited to 64 bytes; split the URI into an array.",
+    "path": "721.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.GlassFinch.image",
+    "ruleId": "cardano/cip25-chunks",
+    "severity": "error",
+  },
+  {
+    "message": "image URI is not absolute.",
+    "path": "721.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.GlassFinch.image",
+    "ruleId": "cardano/cip25-chunks",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > cardano-cip25-chunks-pass.json 1`] = `[]`;
+
+exports[`fixtures > cardano-cip25-files-fail.json 1`] = `
+[
+  {
+    "message": "files[].mediaType is required and must be a type/subtype string.",
+    "path": "721.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.GlassFinch.files[0].mediaType",
+    "ruleId": "cardano/cip25-files",
+    "severity": "error",
+  },
+  {
+    "message": "src chunk is 72 bytes. Cardano metadata strings are limited to 64 bytes; split the URI into an array.",
+    "path": "721.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.GlassFinch.files[0].src",
+    "ruleId": "cardano/cip25-files",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > cardano-cip25-files-pass.json 1`] = `[]`;
+
+exports[`fixtures > cardano-cip27-royalties-fail.json 1`] = `
+[
+  {
+    "message": "rate must be a decimal string from "0" to "1", such as "0.05" for 5%. Legacy pct is still read.",
+    "path": "777.rate",
+    "ruleId": "cardano/cip27-royalties",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > cardano-cip27-royalties-pass.json 1`] = `[]`;
+
+exports[`fixtures > cardano-cip68-datum-fail.json 1`] = `
+[
+  {
+    "message": "CIP-68 datum version must be an integer from 1 to 4. Version 4 may nest metadata under the 721 map.",
+    "path": "version",
+    "ruleId": "cardano/cip68-datum",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > cardano-cip68-datum-pass.json 1`] = `[]`;
+
 exports[`fixtures > common-animation-url-fail.json 1`] = `
 [
   {
@@ -81,7 +371,7 @@ exports[`fixtures > common-metadata-fetch-pass.json 1`] = `[]`;
 exports[`fixtures > common-standard-fail.json 1`] = `
 [
   {
-    "message": "Could not tell which metadata standard this is. Expected ERC-721, ERC-1155, or Metaplex JSON.",
+    "message": "Could not tell which metadata standard this is. Pass --chain, or add the fields of ERC-721, ERC-1155, Metaplex, or another supported chain standard.",
     "path": "",
     "ruleId": "common/standard",
     "severity": "info",
@@ -194,6 +484,90 @@ exports[`fixtures > evm-token-uri-fail.json 1`] = `
 `;
 
 exports[`fixtures > evm-token-uri-pass.json 1`] = `[]`;
+
+exports[`fixtures > flow-collection-display-fail.json 1`] = `
+[
+  {
+    "message": "NFTCollectionDisplay.bannerImage is required (a Media with file and mediaType).",
+    "path": "collectionDisplay.bannerImage",
+    "ruleId": "flow/collection-display",
+    "severity": "error",
+  },
+  {
+    "message": "NFTCollectionDisplay.squareImage is required (a Media with file and mediaType).",
+    "path": "collectionDisplay.squareImage",
+    "ruleId": "flow/collection-display",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > flow-collection-display-pass.json 1`] = `[]`;
+
+exports[`fixtures > flow-display-fail.json 1`] = `
+[
+  {
+    "message": "Display.thumbnail is required. Use an HTTPFile {url} or an IPFSFile {cid, path}.",
+    "path": "display.thumbnail",
+    "ruleId": "flow/display",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > flow-display-pass.json 1`] = `[]`;
+
+exports[`fixtures > flow-editions-fail.json 1`] = `
+[
+  {
+    "message": "edition number 5 is greater than max 1. MetadataViews rejects that.",
+    "path": "editions[0].number",
+    "ruleId": "flow/editions",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > flow-editions-pass.json 1`] = `[]`;
+
+exports[`fixtures > flow-medias-fail.json 1`] = `
+[
+  {
+    "message": "media.file is required.",
+    "path": "medias[0].file",
+    "ruleId": "flow/medias",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > flow-medias-pass.json 1`] = `[]`;
+
+exports[`fixtures > flow-royalties-fail.json 1`] = `
+[
+  {
+    "message": "cut must be a number from 0 to 1. MetadataViews rejects anything outside that range.",
+    "path": "royalties[0].cut",
+    "ruleId": "flow/royalties",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > flow-royalties-pass.json 1`] = `[]`;
+
+exports[`fixtures > flow-traits-fail.json 1`] = `
+[
+  {
+    "message": "trait name must be a non-empty string.",
+    "path": "traits[0].name",
+    "ruleId": "flow/traits",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > flow-traits-pass.json 1`] = `[]`;
 
 exports[`fixtures > media-arweave-uri-fail.json 1`] = `
 [
@@ -369,3 +743,332 @@ exports[`fixtures > solana-required-fields-fail.json 1`] = `
 `;
 
 exports[`fixtures > solana-required-fields-pass.json 1`] = `[]`;
+
+exports[`fixtures > stargaze-attributes-fail.json 1`] = `
+[
+  {
+    "message": "trait_type must be a non-empty string.",
+    "path": "extension.attributes[0].trait_type",
+    "ruleId": "stargaze/attributes",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > stargaze-attributes-pass.json 1`] = `[]`;
+
+exports[`fixtures > stargaze-metadata-fail.json 1`] = `
+[
+  {
+    "message": "name must be a non-empty string, on the token JSON or in the sg721 extension.",
+    "path": "extension.name",
+    "ruleId": "stargaze/metadata",
+    "severity": "error",
+  },
+  {
+    "message": "sg721 needs extension.image or token_uri. Marketplaces cannot render the token without one.",
+    "path": "image",
+    "ruleId": "stargaze/metadata",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > stargaze-metadata-pass.json 1`] = `[]`;
+
+exports[`fixtures > stargaze-royalty-fail.json 1`] = `
+[
+  {
+    "message": "share 0.5 is above 0.10. sg721 rejects a royalty over 10%.",
+    "path": "royalty_info.share",
+    "ruleId": "stargaze/royalty",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > stargaze-royalty-pass.json 1`] = `[]`;
+
+exports[`fixtures > stargaze-token-uri-fail.json 1`] = `
+[
+  {
+    "message": "token_uri URI is not absolute.",
+    "path": "token_uri",
+    "ruleId": "stargaze/token-uri",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > stargaze-token-uri-pass.json 1`] = `[]`;
+
+exports[`fixtures > sui-display-fields-fail.json 1`] = `
+[
+  {
+    "message": "name must be a non-empty string.",
+    "path": "name",
+    "ruleId": "sui/display-fields",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > sui-display-fields-pass.json 1`] = `[]`;
+
+exports[`fixtures > sui-kiosk-fail.json 1`] = `
+[
+  {
+    "message": "Kiosk id must be a Sui address: 0x and 1 to 64 hex characters.",
+    "path": "kiosk_id",
+    "ruleId": "sui/kiosk",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > sui-kiosk-pass.json 1`] = `[]`;
+
+exports[`fixtures > sui-templates-fail.json 1`] = `
+[
+  {
+    "message": "image_url still contains a Display template ({image_id}). Clients substitute {field} from the object; a leftover brace means the field was missing.",
+    "path": "image_url",
+    "ruleId": "sui/templates",
+    "severity": "warn",
+  },
+]
+`;
+
+exports[`fixtures > sui-templates-pass.json 1`] = `[]`;
+
+exports[`fixtures > sui-urls-fail.json 1`] = `
+[
+  {
+    "message": "image_url URI uses http://. Use https://, ipfs://, or ar://.",
+    "path": "image_url",
+    "ruleId": "sui/urls",
+    "severity": "error",
+  },
+  {
+    "message": "image_url is hosted on example.com. Prefer ipfs:// or ar:// so the file survives if that server goes away.",
+    "path": "image_url",
+    "ruleId": "media/host-policy",
+    "severity": "warn",
+  },
+  {
+    "message": "image_url uses http://. Use https://.",
+    "path": "image_url",
+    "ruleId": "media/host-policy",
+    "severity": "warn",
+  },
+]
+`;
+
+exports[`fixtures > sui-urls-pass.json 1`] = `[]`;
+
+exports[`fixtures > tezos-attributes-fail.json 1`] = `
+[
+  {
+    "message": "attribute name must be a non-empty string.",
+    "path": "attributes[0].name",
+    "ruleId": "tezos/attributes",
+    "severity": "error",
+  },
+  {
+    "message": "TZIP-21 attributes use name, not OpenSea trait_type. objkt will drop this trait.",
+    "path": "attributes[0].name",
+    "ruleId": "tezos/attributes",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > tezos-attributes-pass.json 1`] = `[]`;
+
+exports[`fixtures > tezos-creators-fail.json 1`] = `
+[
+  {
+    "message": "creators must be an array of strings.",
+    "path": "creators",
+    "ruleId": "tezos/creators",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > tezos-creators-pass.json 1`] = `[]`;
+
+exports[`fixtures > tezos-formats-fail.json 1`] = `
+[
+  {
+    "message": "mimeType must be a type/subtype string, such as image/png.",
+    "path": "formats[0].mimeType",
+    "ruleId": "tezos/formats",
+    "severity": "error",
+  },
+  {
+    "message": "formats uri URI is not absolute.",
+    "path": "formats[0].uri",
+    "ruleId": "tezos/formats",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > tezos-formats-pass.json 1`] = `[]`;
+
+exports[`fixtures > tezos-required-fields-fail.json 1`] = `
+[
+  {
+    "message": "artifactUri is missing. TZIP-21 NFTs use artifactUri for the file, displayUri for the preview, and thumbnailUri for lists.",
+    "path": "artifactUri",
+    "ruleId": "tezos/required-fields",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > tezos-required-fields-pass.json 1`] = `[]`;
+
+exports[`fixtures > tezos-royalties-fail.json 1`] = `
+[
+  {
+    "message": "Royalty recipient "not-an-address" is not a tz1, tz2, tz3, tz4, or KT1 address. A name here cannot be paid.",
+    "path": "royalties.shares.not-an-address",
+    "ruleId": "tezos/royalties",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > tezos-royalties-pass.json 1`] = `[]`;
+
+exports[`fixtures > tezos-tzip16-fail.json 1`] = `
+[
+  {
+    "message": "Each TZIP-16 view needs implementations (or a single implementation object).",
+    "path": "views[0].implementations",
+    "ruleId": "tezos/tzip16",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > tezos-tzip16-pass.json 1`] = `[]`;
+
+exports[`fixtures > ton-attributes-fail.json 1`] = `
+[
+  {
+    "message": "attribute needs trait_type (Getgems) or name.",
+    "path": "attributes[0].trait_type",
+    "ruleId": "ton/attributes",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > ton-attributes-pass.json 1`] = `[]`;
+
+exports[`fixtures > ton-content-uri-fail.json 1`] = `
+[
+  {
+    "message": "content_url URI is not absolute.",
+    "path": "content_url",
+    "ruleId": "ton/content-uri",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > ton-content-uri-pass.json 1`] = `[]`;
+
+exports[`fixtures > ton-layout-fail.json 1`] = `
+[
+  {
+    "message": "Off-chain content (prefix 0x01) must include the ASCII uri of the JSON document.",
+    "path": "uri",
+    "ruleId": "ton/layout",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > ton-layout-pass.json 1`] = `[]`;
+
+exports[`fixtures > ton-required-fields-fail.json 1`] = `
+[
+  {
+    "message": "TEP-64 items need image (a URI) or image_data (base64). Getgems shows nothing without one.",
+    "path": "image",
+    "ruleId": "ton/required-fields",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > ton-required-fields-pass.json 1`] = `[]`;
+
+exports[`fixtures > ton-royalty-fail.json 1`] = `
+[
+  {
+    "message": "numerator and denominator must be integers, denominator > 0, and numerator <= denominator.",
+    "path": "royalty_params",
+    "ruleId": "ton/royalty",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > ton-royalty-pass.json 1`] = `[]`;
+
+exports[`fixtures > tron-address-fail.json 1`] = `
+[
+  {
+    "message": "Contract "TnotARealAddress0000000000000000" is not a mainnet base58check address (34 characters, starts with T, prefix byte 0x41).",
+    "path": "contract",
+    "ruleId": "tron/address",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > tron-address-pass.json 1`] = `[]`;
+
+exports[`fixtures > tron-id-placeholder-fail.json 1`] = `
+[
+  {
+    "message": "image contains {id}. That substitution is TRC-1155. A TRC-721 tokenURI is one document per token.",
+    "path": "image",
+    "ruleId": "tron/id-placeholder",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > tron-id-placeholder-pass.json 1`] = `[]`;
+
+exports[`fixtures > tron-token-uri-fail.json 1`] = `
+[
+  {
+    "message": "tokenURI points at a Tronscan page. It must point at the JSON file (ipfs://, btfs, or https), not the explorer.",
+    "path": "tokenURI",
+    "ruleId": "tron/token-uri",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > tron-token-uri-html-fail.json 1`] = `
+[
+  {
+    "message": "tokenURI returned an HTML page. The host is probably an error or a website, not the metadata JSON.",
+    "path": "tokenURI",
+    "ruleId": "tron/token-uri-html",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`fixtures > tron-token-uri-html-pass.json 1`] = `[]`;
+
+exports[`fixtures > tron-token-uri-pass.json 1`] = `[]`;

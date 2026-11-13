@@ -188,6 +188,19 @@ export function primaryFetchUrl(parsed: ParsedUri, gateways: string[]): string |
   return null;
 }
 
+/** A problem with an ipfs, ar, https, or data URI. Null when the URI is usable. */
+export function metadataUriIssue(value: string): string | null {
+  const parsed = parseUri(value);
+  if (parsed.kind === "invalid") return parsed.reason;
+  if (parsed.kind === "http" && !parsed.secure) {
+    return "URI uses http://. Use https://, ipfs://, or ar://.";
+  }
+  if (parsed.kind === "ipfs" && !parsed.cidValid) return "URI has an invalid IPFS CID.";
+  if (parsed.kind === "arweave" && !parsed.txValid)
+    return "URI has an invalid Arweave transaction id.";
+  return null;
+}
+
 export function inspectErc1155Uri(
   uri: string,
   tokenId?: string,

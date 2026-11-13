@@ -9,9 +9,39 @@ export function ruleDocUrl(id: string): string {
 export type Severity = "error" | "warn" | "info";
 
 export type StandardId =
-  "erc-721" | "erc-1155" | "metaplex-token-metadata" | "metaplex-core" | "unknown";
+  | "erc-721"
+  | "erc-1155"
+  | "metaplex-token-metadata"
+  | "metaplex-core"
+  | "tzip-21"
+  | "tzip-16"
+  | "ordinals"
+  | "tep-64"
+  | "flow-metadata-views"
+  | "trc-721"
+  | "cip-25"
+  | "cip-68"
+  | "arc-3"
+  | "arc-19"
+  | "arc-69"
+  | "sui-display"
+  | "aptos-digital-asset"
+  | "cw721"
+  | "unknown";
 
-export type ChainFamily = "evm" | "solana";
+export type ChainFamily =
+  | "evm"
+  | "solana"
+  | "tezos"
+  | "bitcoin"
+  | "ton"
+  | "flow"
+  | "tron"
+  | "cardano"
+  | "algorand"
+  | "sui"
+  | "aptos"
+  | "stargaze";
 
 export interface Finding {
   ruleId: string;
@@ -80,7 +110,33 @@ export interface SolanaOnChain {
   readError?: string;
 }
 
-export type OnChainFacts = ErcOnChain | SolanaOnChain;
+/**
+ * On-chain facts for a non-EVM, non-Solana reader. `kind` matches a StandardId
+ * so the engine can select that chain's rules.
+ */
+export interface JsonOnChain {
+  kind:
+    | "tzip-21"
+    | "tzip-16"
+    | "ordinals"
+    | "tep-64"
+    | "flow-metadata-views"
+    | "trc-721"
+    | "cip-25"
+    | "cip-68"
+    | "arc-3"
+    | "arc-19"
+    | "arc-69"
+    | "sui-display"
+    | "aptos-digital-asset"
+    | "cw721";
+  uri?: string;
+  name?: string;
+  contentType?: string;
+  readError?: string;
+}
+
+export type OnChainFacts = ErcOnChain | SolanaOnChain | JsonOnChain;
 
 export interface RuleOverride {
   enabled?: boolean;
@@ -108,7 +164,15 @@ export interface HttpResponse {
 }
 
 export interface NetworkClient {
-  fetch(url: string, init?: { timeoutMs?: number }): Promise<HttpResponse>;
+  fetch(
+    url: string,
+    init?: {
+      timeoutMs?: number;
+      method?: string;
+      headers?: Record<string, string>;
+      body?: string;
+    },
+  ): Promise<HttpResponse>;
 }
 
 export interface GatewayProbe {

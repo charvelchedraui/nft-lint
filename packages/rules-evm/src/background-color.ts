@@ -3,7 +3,7 @@ import { defineRule, ruleDocUrl } from "@nft-lint/core";
 export const backgroundColorRule = defineRule({
   id: "common/background-color",
   chains: ["*"],
-  standards: ["erc-721", "erc-1155", "metaplex-token-metadata", "metaplex-core"],
+  standards: ["erc-721", "erc-1155", "trc-721", "metaplex-token-metadata", "metaplex-core"],
   severity: "error",
   docs: ruleDocUrl("common/background-color"),
   needsNetwork: false,

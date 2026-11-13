@@ -6,7 +6,7 @@ const YOUTUBE =
 export const externalUrlRule = defineRule({
   id: "common/external-url",
   chains: ["*"],
-  standards: ["erc-721", "erc-1155", "metaplex-token-metadata", "metaplex-core"],
+  standards: ["erc-721", "erc-1155", "trc-721", "metaplex-token-metadata", "metaplex-core"],
   severity: "error",
   docs: ruleDocUrl("common/external-url"),
   needsNetwork: false,
@@ -37,7 +37,7 @@ export const externalUrlRule = defineRule({
 export const animationUrlRule = defineRule({
   id: "common/animation-url",
   chains: ["*"],
-  standards: ["erc-721", "erc-1155", "metaplex-token-metadata", "metaplex-core"],
+  standards: ["erc-721", "erc-1155", "trc-721", "metaplex-token-metadata", "metaplex-core"],
   severity: "error",
   docs: ruleDocUrl("common/animation-url"),
   needsNetwork: false,
@@ -60,7 +60,7 @@ export const animationUrlRule = defineRule({
 export const youtubeUrlRule = defineRule({
   id: "common/youtube-url",
   chains: ["*"],
-  standards: ["erc-721", "erc-1155", "metaplex-token-metadata", "metaplex-core"],
+  standards: ["erc-721", "erc-1155", "trc-721", "metaplex-token-metadata", "metaplex-core"],
   severity: "error",
   docs: ruleDocUrl("common/youtube-url"),
   needsNetwork: false,

@@ -12,7 +12,14 @@ export function createNetworkClient(options: {
       const response = await globalThis.fetch(url, {
         redirect: "follow",
         signal: AbortSignal.timeout(timeoutMs),
-        headers: { "user-agent": USER_AGENT, accept: "*/*" },
+        method: init?.method ?? "GET",
+        headers: {
+          "user-agent": USER_AGENT,
+          accept: "*/*",
+          ...(init?.body ? { "content-type": "application/json" } : {}),
+          ...init?.headers,
+        },
+        ...(init?.body ? { body: init.body } : {}),
       });
       const headers: Record<string, string> = {};
       response.headers.forEach((value, key) => {

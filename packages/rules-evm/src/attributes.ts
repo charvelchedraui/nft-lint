@@ -5,7 +5,7 @@ const NUMERIC = new Set(["number", "boost_number", "boost_percentage", "date"]);
 export const attributesRule = defineRule({
   id: "common/attributes",
   chains: ["*"],
-  standards: ["erc-721", "erc-1155", "metaplex-token-metadata", "metaplex-core"],
+  standards: ["erc-721", "erc-1155", "trc-721", "metaplex-token-metadata", "metaplex-core"],
   severity: "error",
   docs: ruleDocUrl("common/attributes"),
   needsNetwork: false,

@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { defaultRules } from "@nft-lint/preset";
 import { ercMetadataSchema, metaplexMetadataSchema, openseaAttributeSchema } from "@nft-lint/core";
 
-const stubs = [
+const chainPacks = [
   "tezos",
   "bitcoin",
   "ton",
@@ -46,15 +46,18 @@ describe("rule registry", () => {
     );
   });
 
-  it("ships an empty stub pack for each later chain", async () => {
-    for (const id of stubs) {
+  it("ships a stable rule pack for each of the 10 later chains", async () => {
+    for (const id of chainPacks) {
       const mod = (await import(`../packages/rules-${id}/src/index.ts`)) as {
-        pack: { id: string; status: string; rules: unknown[] };
+        pack: { id: string; status: string; rules: { id: string }[] };
       };
       expect(mod.pack.id).toBe(id);
-      expect(mod.pack.status).toBe("stub");
-      expect(mod.pack.rules).toEqual([]);
+      expect(mod.pack.status).toBe("stable");
+      expect(mod.pack.rules.length).toBeGreaterThan(0);
       expect(existsSync(join("packages", `rules-${id}`, "README.md"))).toBe(true);
+      for (const rule of mod.pack.rules) {
+        expect(defaultRules.some((item) => item.id === rule.id)).toBe(true);
+      }
     }
   });
 });

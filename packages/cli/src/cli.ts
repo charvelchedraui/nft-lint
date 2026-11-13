@@ -36,7 +36,7 @@ export async function runCli(argv: string[], io: Io = defaultIo()): Promise<numb
   const program = new Command();
   program
     .name("nft-lint")
-    .description("Lint NFT metadata for EVM chains and Solana.")
+    .description("Lint NFT metadata for 20 chains.")
     .version(version())
     .argument("[targets...]", "JSON file, directory, URL, or chain:contract:tokenId")
     .option("--offline", "Skip rules that need the network")
@@ -48,6 +48,7 @@ export async function runCli(argv: string[], io: Io = defaultIo()): Promise<numb
     .option("--timeout <ms>", "Network timeout in milliseconds")
     .option("--max-image-bytes <n>", "Warn when an image is larger than this")
     .option("--royalty-warn-above <percent>", "Warn when royalties exceed this percent")
+    .option("--chain <id>", "Chain to lint against when the file does not name one")
     .addOption(
       new Option("--rpc <chain=url...>", "Override a chain RPC. Repeat the flag to set several.")
         .argParser(collect)
@@ -103,6 +104,7 @@ interface CliOptions {
   maxImageBytes?: string;
   royaltyWarnAbove?: string;
   rpc?: string[];
+  chain?: string;
 }
 
 async function lintTargets(targets: string[], options: CliOptions, io: Io): Promise<number> {
@@ -132,7 +134,7 @@ async function lintTargets(targets: string[], options: CliOptions, io: Io): Prom
   for (const target of targets) {
     const files = expandTarget(resolve(io.cwd, target), target);
     for (const file of files) {
-      const report = await lint(file.input, { ...lintOptions, ...(file.label ? {} : {}) });
+      const report = await lint(applyChain(file.input, options.chain), lintOptions);
       report.target = file.label;
       reports.push(report);
       collectionFiles.push({ target: file.label, report, json: report.metadata });
@@ -188,6 +190,21 @@ function colorize(text: string): string {
       return line;
     })
     .join("\n");
+}
+
+function applyChain(
+  input: string | { raw: string; label: string; encodingError?: string },
+  chain: string | undefined,
+): string | { raw?: string; label: string; encodingError?: string; chain?: string; url?: string } {
+  if (!chain) return input;
+  if (typeof input === "string") {
+    const trimmed = input.trim();
+    if (/^(https?:|ipfs:|ar:)/i.test(trimmed)) return { label: trimmed, url: trimmed, chain };
+    if (trimmed.startsWith("{") || trimmed.startsWith("["))
+      return { raw: trimmed, label: trimmed, chain };
+    return input;
+  }
+  return { ...input, chain };
 }
 
 function expandTarget(

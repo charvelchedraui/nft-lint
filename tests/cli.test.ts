@@ -27,6 +27,8 @@ describe("cli", () => {
     expect(await runCli(["chains"], chains.streams)).toBe(0);
     expect(chains.out.join("")).toContain("robinhood");
     expect(chains.out.join("")).toContain("4663");
+    expect(chains.out.join("")).toContain("tezos");
+    expect(chains.out.join("")).toContain("stargaze");
     const rules = io();
     expect(await runCli(["rules"], rules.streams)).toBe(0);
     expect(rules.out.join("")).toContain("evm/eip2981");

@@ -1,4 +1,5 @@
 import {
+  chains,
   createNetworkClient,
   formatMarkdown,
   type LintReport,
@@ -39,23 +40,11 @@ const brokenSample = {
   ],
 };
 
-const chains = [
-  "Ethereum",
-  "Base",
-  "Arbitrum",
-  "OP Mainnet",
-  "BNB Chain",
-  "Avalanche",
-  "Robinhood Chain",
-  "Polygon",
-  "ApeChain",
-  "Solana",
-];
-
 export function App() {
   const [tab, setTab] = useState("json");
   const [text, setText] = useState("");
   const [url, setUrl] = useState("");
+  const [chainId, setChainId] = useState("auto");
   const [checkMedia, setCheckMedia] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
@@ -78,7 +67,13 @@ export function App() {
     setStatus("loading");
     setError(null);
     try {
-      const next = await lint(trimmed, {
+      const input =
+        chainId === "auto"
+          ? trimmed
+          : tab === "json"
+            ? { raw: trimmed, chain: chainId }
+            : { url: trimmed, chain: chainId };
+      const next = await lint(input, {
         env: {},
         offline: !checkMedia,
         network,
@@ -196,6 +191,22 @@ export function App() {
               </p>
             </TabsContent>
           </Tabs>
+          <label className="block text-sm font-semibold" htmlFor="chain">
+            Chain
+          </label>
+          <select
+            id="chain"
+            className="h-10 rounded-md border border-ink/20 bg-white px-3 text-sm"
+            value={chainId}
+            onChange={(event) => setChainId(event.target.value)}
+          >
+            <option value="auto">Auto-detect</option>
+            {chains.map((chain) => (
+              <option key={chain.id} value={chain.id}>
+                {chain.name}
+              </option>
+            ))}
+          </select>
           <label className="flex items-center gap-2 text-sm">
             <input
               type="checkbox"
@@ -235,7 +246,7 @@ export function App() {
       </main>
       <footer className="border-t border-ink/10">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-sm text-ink/70">
-          <p>v1 chains: {chains.join(" · ")}</p>
+          <p>Chains: {chains.map((chain) => chain.name).join(" · ")}</p>
           <p>
             Apache-2.0. Nothing you paste is uploaded to a lint server. Fetches go to the URI you
             provide.

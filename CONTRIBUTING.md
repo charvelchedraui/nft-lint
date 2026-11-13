@@ -39,9 +39,9 @@ export default defineRule({
 
 ## A chain
 
-Stub packages already exist for Tezos, Bitcoin Ordinals, TON, Flow, Tron, Cardano, Algorand, Sui, Aptos, and Stargaze. Each `README` lists the checks to write. Keep HTTP behind `NetworkClient` so CI stays offline. Do not add a paid API or a key.
+The chain packs in `packages/rules-*` are part of the default preset. A new chain follows the same layout: `defineRule`, pass and fail fixtures, and a page under `docs/rules/`. Keep HTTP behind `NetworkClient` so CI stays offline. Do not add a paid API or a key.
 
-When the pack is useful, export its rules from `@nft-lint/preset` only if they should run by default. Until then, document how to pass `rules: [...defaultRules, ...yourRules]`.
+Export the rules from `@nft-lint/preset` when they should run by default. Register the chain in `packages/core/src/chains.ts` so the CLI and the web picker can select it.
 
 ## Pull requests
 

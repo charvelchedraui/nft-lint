@@ -12,6 +12,6 @@ Rules are standard-specific. A Tezos document should not be judged as ERC-721.
 
 ## How to fix
 
-Add the fields of ERC-721, ERC-1155, or Metaplex JSON, or pass an explicit standard.
+Add the fields of a supported standard, or pass `--chain`. Empty objects are not metadata.
 
 Docs: https://github.com/charvelchedraui/nft-lint/blob/main/docs/rules/common/standard.md

@@ -33,6 +33,7 @@ export type {
   ChainFamily,
   ErcOnChain,
   Finding,
+  JsonOnChain,
   GatewayProbe,
   HttpResponse,
   LintConfig,
@@ -63,6 +64,7 @@ export {
   isIpfsGatewayHost,
   isLocalHost,
   isValidCid,
+  metadataUriIssue,
   parseUri,
   primaryFetchUrl,
 } from "./uri.js";

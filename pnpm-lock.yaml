@@ -98,15 +98,45 @@ importers:
       '@nft-lint/core':
         specifier: workspace:*
         version: link:../core
+      '@nft-lint/rules-algorand':
+        specifier: workspace:*
+        version: link:../rules-algorand
+      '@nft-lint/rules-aptos':
+        specifier: workspace:*
+        version: link:../rules-aptos
+      '@nft-lint/rules-bitcoin':
+        specifier: workspace:*
+        version: link:../rules-bitcoin
+      '@nft-lint/rules-cardano':
+        specifier: workspace:*
+        version: link:../rules-cardano
       '@nft-lint/rules-evm':
         specifier: workspace:*
         version: link:../rules-evm
+      '@nft-lint/rules-flow':
+        specifier: workspace:*
+        version: link:../rules-flow
       '@nft-lint/rules-media':
         specifier: workspace:*
         version: link:../rules-media
       '@nft-lint/rules-solana':
         specifier: workspace:*
         version: link:../rules-solana
+      '@nft-lint/rules-stargaze':
+        specifier: workspace:*
+        version: link:../rules-stargaze
+      '@nft-lint/rules-sui':
+        specifier: workspace:*
+        version: link:../rules-sui
+      '@nft-lint/rules-tezos':
+        specifier: workspace:*
+        version: link:../rules-tezos
+      '@nft-lint/rules-ton':
+        specifier: workspace:*
+        version: link:../rules-ton
+      '@nft-lint/rules-tron':
+        specifier: workspace:*
+        version: link:../rules-tron
 
   packages/rules-algorand:
     dependencies:

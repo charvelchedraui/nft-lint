@@ -1,5 +1,4 @@
 import { defineRule } from "./define-rule.js";
-import { looksLikeTezos } from "./detect.js";
 import { isRecord, ruleDocUrl } from "./types.js";
 
 export const jsonRule = defineRule({
@@ -75,17 +74,10 @@ export const standardRule = defineRule({
   needsNetwork: false,
   check(ctx) {
     if (ctx.standard !== "unknown" || ctx.fetchError || ctx.json == null) return;
-    if (looksLikeTezos(ctx.json)) {
-      ctx.report({
-        message:
-          "This looks like Tezos TZIP-21 (artifactUri or displayUri). The Tezos rule pack is a stub, so those fields were not checked.",
-      });
-      return;
-    }
     if (!isRecord(ctx.json)) return;
     ctx.report({
       message:
-        "Could not tell which metadata standard this is. Expected ERC-721, ERC-1155, or Metaplex JSON.",
+        "Could not tell which metadata standard this is. Pass --chain, or add the fields of ERC-721, ERC-1155, Metaplex, or another supported chain standard.",
     });
   },
 });

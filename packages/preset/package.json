@@ -21,7 +21,7 @@
   "files": [
     "dist"
   ],
-  "description": "Default nft-lint rule set: EVM, Solana, and media.",
+  "description": "Default nft-lint rule set for all 20 supported chains, plus media.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -38,6 +38,16 @@
     "@nft-lint/core": "workspace:*",
     "@nft-lint/rules-evm": "workspace:*",
     "@nft-lint/rules-solana": "workspace:*",
-    "@nft-lint/rules-media": "workspace:*"
+    "@nft-lint/rules-media": "workspace:*",
+    "@nft-lint/rules-tezos": "workspace:*",
+    "@nft-lint/rules-bitcoin": "workspace:*",
+    "@nft-lint/rules-ton": "workspace:*",
+    "@nft-lint/rules-flow": "workspace:*",
+    "@nft-lint/rules-tron": "workspace:*",
+    "@nft-lint/rules-cardano": "workspace:*",
+    "@nft-lint/rules-algorand": "workspace:*",
+    "@nft-lint/rules-sui": "workspace:*",
+    "@nft-lint/rules-aptos": "workspace:*",
+    "@nft-lint/rules-stargaze": "workspace:*"
   }
 }

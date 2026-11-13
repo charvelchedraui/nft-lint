@@ -5,7 +5,7 @@ A free, open-source linter for NFT metadata. Point it at a JSON file, a metadata
 [![CI](https://github.com/charvelchedraui/nft-lint/actions/workflows/ci.yml/badge.svg)](https://github.com/charvelchedraui/nft-lint/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/charvelchedraui/nft-lint)](https://github.com/charvelchedraui/nft-lint/blob/main/LICENSE)
 
-Multichain is the point. Nine EVM networks share one ERC-721 / ERC-1155 engine. Solana uses Metaplex Token Metadata and Core. Ten more chains are stub packages with a written TODO so they can land as separate rule packs.
+Multichain is the point. Nine EVM networks share one ERC-721 / ERC-1155 engine. Solana uses Metaplex Token Metadata and Core. Tezos, Bitcoin Ordinals, TON, Flow, Tron, Cardano, Algorand, Sui, Aptos, and Stargaze each have their own pack.
 
 ## Quick start
 
@@ -54,16 +54,16 @@ NFT Lint is a library, a CLI, and a small web page over one rule runner. It is m
 | Polygon PoS       | `eip155:137`              | same EVM pack                                             | stable |
 | ApeChain          | `eip155:33139`            | same EVM pack                                             | stable |
 | Solana            | mainnet-beta genesis hash | Metaplex Token Metadata, Metaplex Core                    | stable |
-| Tezos             | —                         | TZIP-21, TZIP-16                                          | stub   |
-| Bitcoin Ordinals  | —                         | inscriptions / collection metadata                        | stub   |
-| TON               | —                         | TEP-64                                                    | stub   |
-| Flow              | —                         | MetadataViews                                             | stub   |
-| Tron              | —                         | TRC-721                                                   | stub   |
-| Cardano           | —                         | CIP-25, CIP-68                                            | stub   |
-| Algorand          | —                         | ARC-3, ARC-19, ARC-69                                     | stub   |
-| Sui               | —                         | Display                                                   | stub   |
-| Aptos             | —                         | Digital Asset                                             | stub   |
-| Stargaze          | —                         | cw721                                                     | stub   |
+| Tezos             | `tezos:NetXdQprcVkpaWU`   | TZIP-12, TZIP-16, TZIP-21                                 | stable |
+| Bitcoin Ordinals  | `bip122` genesis hash     | inscription and collection metadata                       | stable |
+| TON               | `ton:-239`                | TEP-62, TEP-64                                            | stable |
+| Flow              | `flow:mainnet`            | MetadataViews                                             | stable |
+| Tron              | `tron:mainnet`            | TRC-721                                                   | stable |
+| Cardano           | `cardano:mainnet`         | CIP-25, CIP-68, CIP-27                                    | stable |
+| Algorand          | mainnet genesis hash      | ARC-3, ARC-19, ARC-69                                     | stable |
+| Sui               | `sui:mainnet`             | Display, Kiosk                                            | stable |
+| Aptos             | `aptos:1`                 | Digital Asset                                             | stable |
+| Stargaze          | `cosmos:stargaze-1`       | cw721, sg721                                              | stable |
 
 Solana has no EIP-155 chain id. The registry stores the mainnet-beta genesis hash `5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d`.
 
@@ -84,7 +84,7 @@ const report = await lint(metadataJson, { offline: true });
 if (report.summary.errors > 0) process.exit(1);
 ```
 
-`@nft-lint/core` is the engine (`defineRule`, `lint` with an explicit rule list). `@nft-lint/preset` is the v1 rule set: builtins, EVM, Solana, and media. `@nft-lint/fetchers` reads `tokenURI` / `uri` / EIP-2981 with viem, and Metaplex Token Metadata 4.0.0 plus Core 1.10.0 with Umi.
+`@nft-lint/core` is the engine (`defineRule`, `lint` with an explicit rule list). `@nft-lint/preset` is the v1 rule set: builtins, EVM, Solana, and media. `@nft-lint/fetchers` reads `tokenURI` / `uri` / EIP-2981 with viem, Metaplex Token Metadata and Core with Umi, and the other chains through public indexers and full nodes (TzKT, ordinals.com, tonapi, a Flow access node, TronGrid, Koios, Algonode, a Sui fullnode, Aptos fullnode, and the Stargaze LCD).
 
 Packages:
 
@@ -97,7 +97,7 @@ Packages:
 | Media rules   | `@nft-lint/rules-media`                                                                                                                                            |
 | Chain readers | `@nft-lint/fetchers`                                                                                                                                               |
 | CLI           | `nft-lint`                                                                                                                                                         |
-| Stubs         | `@nft-lint/rules-tezos`, `rules-bitcoin`, `rules-ton`, `rules-flow`, `rules-tron`, `rules-cardano`, `rules-algorand`, `rules-sui`, `rules-aptos`, `rules-stargaze` |
+| More chains   | `@nft-lint/rules-tezos`, `rules-bitcoin`, `rules-ton`, `rules-flow`, `rules-tron`, `rules-cardano`, `rules-algorand`, `rules-sui`, `rules-aptos`, `rules-stargaze` |
 
 JSON Schema documents for other languages are in [`schemas/`](schemas/).
 
@@ -116,13 +116,16 @@ nft-lint <file|directory|url|chain:contract:tokenId> [options]
 --timeout <ms>
 --max-image-bytes <n>
 --royalty-warn-above <percent>
+--chain <id>              Lint a file as this chain (tezos, bitcoin, ton, flow, tron, cardano, algorand, sui, aptos, stargaze, or an EVM alias)
 nft-lint chains
 nft-lint rules
 ```
 
 A directory of JSON files is linted one file at a time. If the same `trait_type` is a string in one file and a number in another, `common/trait-type-consistency` warns.
 
-Chain aliases include `eth`, `base`, `arb`, `op`, `bnb` / `bsc`, `avax`, `robinhood`, `polygon` / `matic`, `ape`, and `sol`.
+Chain aliases include `eth`, `base`, `arb`, `op`, `bnb` / `bsc`, `avax`, `robinhood`, `polygon` / `matic`, `ape`, `sol`, `xtz`, `btc` / `ordinals`, `ton`, `flow`, `trx`, `ada`, `algo`, `sui`, `apt`, and `stars`.
+
+Targets look like `tezos:KT1...:1`, `tron:T...:1`, `cardano:<policy>:<asset>`, `flow:0x...:1`, or `stargaze:<contract>:<token_id>`. Bitcoin, TON, Algorand, Sui, and Aptos take a single id: `bitcoin:<inscription_id>`, `ton:<address>`, `algorand:<asset_id>`, `sui:<object_id>`, `aptos:<object>`.
 
 ## CI
 
@@ -155,6 +158,16 @@ Shared checks in v1:
 - OpenSea attributes, `background_color`, `external_url`, `animation_url`, `youtube_url`
 - `contractURI` shape and EIP-2981 (`supportsInterface`, zero receiver, fee above 10%, mismatch with contract metadata)
 - Metaplex required fields, `image` listed in `properties.files`, on-chain byte lengths, creator shares, Core name/uri, on-chain vs JSON attributes
+- TZIP-21 URIs, formats, objkt royalties, and TZIP-16 views
+- Ordinals inscription ids, content types, collection metadata, and size
+- TEP-64 content, TEP-62 royalty params
+- Flow MetadataViews (Display, royalties, editions, traits, collection display)
+- TRC-721 tokenURI, base58 addresses, and HTML responses (ERC-721 field checks are reused)
+- CIP-25 / CIP-68 metadata and CIP-27 royalties
+- ARC-3, ARC-19 templates, ARC-69, and ASA byte limits
+- Sui Display templates and Kiosk owners
+- Aptos Digital Asset uri, property map, and royalty
+- Stargaze sg721 extension, token_uri, and royalty share
 - IPFS CID and `ipfs://` form, gateway probes, Arweave ids, `http` / localhost / centralized hosts, reachability, sniffed MIME, size
 
 `needsNetwork` rules are skipped with `--offline`. The report lists them in `skippedRules`.
@@ -172,13 +185,12 @@ Copy [`nft-lint.config.example.json`](nft-lint.config.example.json) to `nft-lint
 }
 ```
 
-## Add a rule pack
+## Add a rule
 
-1. Open the stub in `packages/rules-<chain>` and read its TODO.
-2. Export real rules from `defineRule` in `@nft-lint/core`. Ids look like `tezos/tzip21-formats`.
-3. Add `fixtures/<rule-id>-pass.json` and `fixtures/<rule-id>-fail.json`.
-4. Add `docs/rules/<rule-id>.md`.
-5. `pnpm test` fails the registry check when a default rule has no doc or no fixture. Stub packs are empty on purpose and are not in the default set until someone wires them in.
+1. Export a rule from `defineRule` in `@nft-lint/core`. Ids look like `tezos/formats`.
+2. Add `fixtures/<rule-id>-pass.json` and `fixtures/<rule-id>-fail.json`.
+3. Add `docs/rules/<rule-id>.md`.
+4. `pnpm test` fails the registry check when a default rule has no doc or no fixture.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [ROADMAP.md](ROADMAP.md), and [GOOD_FIRST_ISSUES.md](GOOD_FIRST_ISSUES.md).
 
@@ -199,4 +211,4 @@ pnpm test:network   # optional, hits the public network
 
 [Apache-2.0](LICENSE). Copyright 2026 charvelchedraui.
 
-The checks follow public standards: EIP-721, EIP-1155, EIP-2981, ERC-7572, the OpenSea metadata notes, and Metaplex Token Metadata and Core. Those documents remain under their own licenses. This project does not claim them.
+The checks follow public standards: EIP-721, EIP-1155, EIP-2981, ERC-7572, the OpenSea metadata notes, Metaplex Token Metadata and Core, TZIP-12, TZIP-16, TZIP-21, TEP-62, TEP-64, Flow MetadataViews, TRC-721, CIP-25, CIP-27, CIP-68, ARC-3, ARC-19, ARC-69, Sui Display, the Aptos Digital Asset standard, and cw721 / sg721. Ordinals collection metadata follows the JSON marketplaces index. Those documents remain under their own licenses. This project does not claim them.

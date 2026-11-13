@@ -20,7 +20,17 @@
       "@nft-lint/preset": ["../preset/src/index.ts"],
       "@nft-lint/rules-evm": ["../rules-evm/src/index.ts"],
       "@nft-lint/rules-solana": ["../rules-solana/src/index.ts"],
-      "@nft-lint/rules-media": ["../rules-media/src/index.ts"]
+      "@nft-lint/rules-media": ["../rules-media/src/index.ts"],
+      "@nft-lint/rules-tezos": ["../rules-tezos/src/index.ts"],
+      "@nft-lint/rules-bitcoin": ["../rules-bitcoin/src/index.ts"],
+      "@nft-lint/rules-ton": ["../rules-ton/src/index.ts"],
+      "@nft-lint/rules-flow": ["../rules-flow/src/index.ts"],
+      "@nft-lint/rules-tron": ["../rules-tron/src/index.ts"],
+      "@nft-lint/rules-cardano": ["../rules-cardano/src/index.ts"],
+      "@nft-lint/rules-algorand": ["../rules-algorand/src/index.ts"],
+      "@nft-lint/rules-sui": ["../rules-sui/src/index.ts"],
+      "@nft-lint/rules-aptos": ["../rules-aptos/src/index.ts"],
+      "@nft-lint/rules-stargaze": ["../rules-stargaze/src/index.ts"]
     }
   },
   "include": ["src"]

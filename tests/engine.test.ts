@@ -43,7 +43,7 @@ async function run(input: Parameters<typeof lint>[0]) {
 }
 
 describe("chains", () => {
-  it("ships the 10 launch chains", () => {
+  it("ships all 20 chains", () => {
     expect(chains.map((chain) => chain.id)).toEqual([
       "ethereum",
       "base",
@@ -55,6 +55,16 @@ describe("chains", () => {
       "polygon",
       "apechain",
       "solana",
+      "tezos",
+      "bitcoin",
+      "ton",
+      "flow",
+      "tron",
+      "cardano",
+      "algorand",
+      "sui",
+      "aptos",
+      "stargaze",
     ]);
     for (const chain of chains) {
       expect(chain.chainId).toBeTruthy();
@@ -67,6 +77,10 @@ describe("chains", () => {
     expect(getChain("ape")?.chainId).toBe(33139);
     expect(getChain("op")?.name).toBe("OP Mainnet");
     expect(getChain("sol")?.chainId).toBe("5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d");
+    expect(getChain("xtz")?.family).toBe("tezos");
+    expect(getChain("ordinals")?.id).toBe("bitcoin");
+    expect(getChain("trx")?.chainId).toBe(728126428);
+    expect(getChain("stars")?.caip2).toBe("cosmos:stargaze-1");
     expect(getChain("matic")?.rpc[0]).toMatch(/^https:\/\//);
   });
 
@@ -77,6 +91,11 @@ describe("chains", () => {
     expect(parseChainTarget("https://example.com/1.json")).toBeNull();
     const sol = parseChainTarget("solana:MintAddress111111111111111111111111111");
     expect(sol && "chain" in sol && sol.chain.family).toBe("solana");
+    const tez = parseChainTarget("tezos:KT1abc:12");
+    expect(tez && "chain" in tez && tez.chain.id).toBe("tezos");
+    expect(tez && "tokenId" in tez && tez.tokenId).toBe("12");
+    const ord = parseChainTarget("btc:abcdefi0");
+    expect(ord && "contract" in ord && ord.contract).toBe("abcdefi0");
   });
 });
 

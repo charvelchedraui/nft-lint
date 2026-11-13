@@ -1,10 +1,12 @@
 import type { ResolveOnChain } from "@nft-lint/core";
 import { resolveEvm } from "./evm.js";
+import { resolveMultichain } from "./multichain.js";
 import { resolveSolana } from "./solana.js";
 
 export const resolveOnChain: ResolveOnChain = (args) => {
   if (args.chain.family === "solana") return resolveSolana(args);
-  return resolveEvm(args);
+  if (args.chain.family === "evm") return resolveEvm(args);
+  return resolveMultichain(args);
 };
 
 export {
@@ -14,6 +16,20 @@ export {
   mapTokenMetadata,
   resolveSolana,
 } from "./solana.js";
+export {
+  algorandReserveCid,
+  resolveAlgorand,
+  resolveAptos,
+  resolveBitcoin,
+  resolveCardano,
+  resolveFlow,
+  resolveMultichain,
+  resolveStargaze,
+  resolveSui,
+  resolveTezos,
+  resolveTon,
+  resolveTron,
+} from "./multichain.js";
 export {
   ERC1155_INTERFACE,
   ERC2981_INTERFACE,

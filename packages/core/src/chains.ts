@@ -4,8 +4,8 @@ const nft = (base: string) => (contract: string, tokenId: string) =>
   `${base}/nft/${contract}/${tokenId}`;
 
 /**
- * Launch chains for v1. EVM entries share one rule pack; only RPC, chain id,
- * and explorer differ. Solana uses the Metaplex pack.
+ * Supported chains. EVM entries share one rule pack; only RPC, chain id, and
+ * explorer differ. Every other family has its own pack.
  */
 export const chains: ChainDefinition[] = [
   {
@@ -119,6 +119,116 @@ export const chains: ChainDefinition[] = [
     nativeCurrency: { name: "Solana", symbol: "SOL", decimals: 9 },
     tokenUrl: (mint) => `https://explorer.solana.com/address/${mint}`,
   },
+  {
+    id: "tezos",
+    name: "Tezos",
+    family: "tezos",
+    chainId: "NetXdQprcVkpaWU",
+    caip2: "tezos:NetXdQprcVkpaWU",
+    rpc: ["https://api.tzkt.io", "https://rpc.tzkt.io/mainnet"],
+    explorer: "https://tzkt.io",
+    nativeCurrency: { name: "Tez", symbol: "XTZ", decimals: 6 },
+    tokenUrl: (contract, tokenId) => `https://tzkt.io/${contract}/tokens/${tokenId}`,
+  },
+  {
+    id: "bitcoin",
+    name: "Bitcoin Ordinals",
+    family: "bitcoin",
+    chainId: "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
+    caip2: "bip122:000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
+    rpc: ["https://ordinals.com", "https://blockstream.info/api"],
+    explorer: "https://ordinals.com",
+    nativeCurrency: { name: "Bitcoin", symbol: "BTC", decimals: 8 },
+    tokenUrl: (inscriptionId) => `https://ordinals.com/inscription/${inscriptionId}`,
+  },
+  {
+    id: "ton",
+    name: "TON",
+    family: "ton",
+    chainId: -239,
+    caip2: "ton:-239",
+    rpc: ["https://tonapi.io"],
+    explorer: "https://tonviewer.com",
+    nativeCurrency: { name: "Toncoin", symbol: "TON", decimals: 9 },
+    tokenUrl: (address) => `https://tonviewer.com/${address}`,
+  },
+  {
+    id: "flow",
+    name: "Flow",
+    family: "flow",
+    chainId: "mainnet",
+    caip2: "flow:mainnet",
+    rpc: ["https://rest-mainnet.onflow.org"],
+    explorer: "https://www.flowscan.io",
+    nativeCurrency: { name: "Flow", symbol: "FLOW", decimals: 8 },
+    tokenUrl: (address, tokenId) => `https://www.flowscan.io/nft/${address}/${tokenId}`,
+  },
+  {
+    id: "tron",
+    name: "Tron",
+    family: "tron",
+    chainId: 728126428,
+    caip2: "tron:mainnet",
+    rpc: ["https://api.trongrid.io"],
+    explorer: "https://tronscan.org",
+    nativeCurrency: { name: "Tron", symbol: "TRX", decimals: 6 },
+    tokenUrl: (contract, tokenId) => `https://tronscan.org/#/token721/${contract}/${tokenId}`,
+  },
+  {
+    id: "cardano",
+    name: "Cardano",
+    family: "cardano",
+    chainId: "mainnet",
+    caip2: "cardano:mainnet",
+    rpc: ["https://api.koios.rest"],
+    explorer: "https://cardanoscan.io",
+    nativeCurrency: { name: "Ada", symbol: "ADA", decimals: 6 },
+    tokenUrl: (policy, asset) => `https://cardanoscan.io/token/${policy}${asset}`,
+  },
+  {
+    id: "algorand",
+    name: "Algorand",
+    family: "algorand",
+    chainId: "wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8=",
+    caip2: "algorand:wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8=",
+    rpc: ["https://mainnet-api.algonode.cloud"],
+    explorer: "https://allo.info",
+    nativeCurrency: { name: "Algo", symbol: "ALGO", decimals: 6 },
+    tokenUrl: (assetId) => `https://allo.info/asset/${assetId}`,
+  },
+  {
+    id: "sui",
+    name: "Sui",
+    family: "sui",
+    chainId: "mainnet",
+    caip2: "sui:mainnet",
+    rpc: ["https://fullnode.mainnet.sui.io"],
+    explorer: "https://suiscan.xyz",
+    nativeCurrency: { name: "Sui", symbol: "SUI", decimals: 9 },
+    tokenUrl: (objectId) => `https://suiscan.xyz/mainnet/object/${objectId}`,
+  },
+  {
+    id: "aptos",
+    name: "Aptos",
+    family: "aptos",
+    chainId: 1,
+    caip2: "aptos:1",
+    rpc: ["https://fullnode.mainnet.aptoslabs.com/v1"],
+    explorer: "https://explorer.aptoslabs.com",
+    nativeCurrency: { name: "Aptos", symbol: "APT", decimals: 8 },
+    tokenUrl: (objectId) => `https://explorer.aptoslabs.com/object/${objectId}?network=mainnet`,
+  },
+  {
+    id: "stargaze",
+    name: "Stargaze",
+    family: "stargaze",
+    chainId: "stargaze-1",
+    caip2: "cosmos:stargaze-1",
+    rpc: ["https://rest.stargaze-apis.com"],
+    explorer: "https://www.mintscan.io/stargaze",
+    nativeCurrency: { name: "Stargaze", symbol: "STARS", decimals: 6 },
+    tokenUrl: (contract, tokenId) => `https://www.stargaze.zone/marketplace/${contract}/${tokenId}`,
+  },
 ];
 
 const ALIASES: Record<string, string> = {
@@ -147,7 +257,28 @@ const ALIASES: Record<string, string> = {
   apechain: "apechain",
   sol: "solana",
   solana: "solana",
+  xtz: "tezos",
+  tezos: "tezos",
+  btc: "bitcoin",
+  bitcoin: "bitcoin",
+  ordinals: "bitcoin",
+  ton: "ton",
+  flow: "flow",
+  trx: "tron",
+  tron: "tron",
+  ada: "cardano",
+  cardano: "cardano",
+  algo: "algorand",
+  algorand: "algorand",
+  sui: "sui",
+  apt: "aptos",
+  aptos: "aptos",
+  stars: "stargaze",
+  stargaze: "stargaze",
 };
+
+/** Chains whose target is a single id, not contract:tokenId. */
+const WHOLE_REST = new Set(["solana", "bitcoin", "ton", "algorand", "sui", "aptos"]);
 
 export function getChain(idOrAlias: string): ChainDefinition | undefined {
   const id = ALIASES[idOrAlias.toLowerCase()] ?? idOrAlias.toLowerCase();
@@ -178,8 +309,9 @@ export function parseChainTarget(
   const chain = getChain(prefix);
   const rest = trimmed.slice(colon + 1);
   if (!chain) return { unknown: prefix, label: trimmed };
-  if (chain.family === "solana") {
-    if (!rest || rest.includes(":")) return null;
+  if (WHOLE_REST.has(chain.id)) {
+    if (!rest) return null;
+    if (chain.family === "solana" && rest.includes(":")) return null;
     return { chain, contract: rest, tokenId: "0", label: trimmed };
   }
   const split = rest.lastIndexOf(":");
