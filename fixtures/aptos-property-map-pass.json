@@ -1,0 +1,27 @@
+{
+  "rule": "aptos/property-map",
+  "kind": "pass",
+  "input": {
+    "json": {
+      "name": "Glass Finch",
+      "description": "Kiln-fired glass bird.",
+      "uri": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.json",
+      "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "collection": {
+        "name": "Glass Finch",
+        "description": "Kiln-fired glass bird.",
+        "uri": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.json"
+      },
+      "properties": {
+        "keys": ["Plumage"],
+        "values": ["Amber"],
+        "types": ["0x1::string::String"]
+      },
+      "royalty": {
+        "numerator": 5,
+        "denominator": 100,
+        "payee_address": "0x0000000000000000000000000000000000000000000000000000000000000004"
+      }
+    }
+  }
+}

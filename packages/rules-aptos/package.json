@@ -21,7 +21,7 @@
   "files": [
     "dist"
   ],
-  "description": "Aptos Digital Asset metadata (stub).",
+  "description": "Aptos Digital Asset metadata rules.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
