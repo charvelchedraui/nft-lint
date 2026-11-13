@@ -21,7 +21,7 @@
   "files": [
     "dist"
   ],
-  "description": "TON TEP-64 metadata (stub).",
+  "description": "TON TEP-62 and TEP-64 metadata rules.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
