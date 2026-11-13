@@ -1,24 +1,25 @@
-import type { Rule, RulePack } from "@nft-lint/core";
+import type { RulePack } from "@nft-lint/core";
+import { attributesRule } from "./attributes.js";
+import { creatorsRule } from "./creators.js";
+import { formatsRule } from "./formats.js";
+import { requiredFieldsRule } from "./required.js";
+import { royaltiesRule } from "./royalties.js";
+import { tzip16Rule } from "./tzip16.js";
 
-/**
- * Tezos TZIP-21 and TZIP-16 rule pack.
- *
- * TODO(good-first-issue): this pack is a stub. It exports no rules yet.
- * See GOOD_FIRST_ISSUES.md and ROADMAP.md.
- *
- * - Read token metadata from TzKT (or Taquito) using the contract address and token id. Keep the HTTP client behind the shared NetworkClient so tests stay offline.
- * - Require name, artifactUri, displayUri, thumbnailUri, decimals (0 for a 1/1 NFT), and creators.
- * - Check formats[] entries for uri and mimeType. When fileSize or dimensions are present and the network is available, compare them to the fetched bytes.
- * - Check royalties.decimals and royalties.shares. Shares should be a sane fraction of the decimals scale.
- * - Check attributes as {name, value} (TZIP-21), not OpenSea trait_type.
- * - Type-check tags, rights, and isBooleanAmount when they are present.
- * - Add fixtures under fixtures/tezos/<rule-id>/ and a page under docs/rules/tezos/.
- */
-export const tezosRules: Rule[] = [];
+export const tezosRules = [
+  requiredFieldsRule,
+  formatsRule,
+  royaltiesRule,
+  attributesRule,
+  creatorsRule,
+  tzip16Rule,
+];
 
 export const pack: RulePack = {
   id: "tezos",
-  status: "stub",
-  standards: ["tzip-21", "tzip-16"],
+  status: "stable",
+  standards: ["tzip-12", "tzip-16", "tzip-21"],
   rules: tezosRules,
 };
+
+export { attributesRule, creatorsRule, formatsRule, requiredFieldsRule, royaltiesRule, tzip16Rule };

@@ -1,0 +1,17 @@
+{
+  "rule": "tezos/tzip16",
+  "kind": "fail",
+  "input": {
+    "json": {
+      "name": "Glass Finch",
+      "description": "Contract metadata for the collection.",
+      "interfaces": ["TZIP-016", "TZIP-012"],
+      "homepage": "https://gallery.example/finch",
+      "views": [
+        {
+          "name": "token_metadata"
+        }
+      ]
+    }
+  }
+}

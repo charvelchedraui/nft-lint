@@ -1,0 +1,25 @@
+{
+  "rule": "tezos/tzip16",
+  "kind": "pass",
+  "input": {
+    "json": {
+      "name": "Glass Finch",
+      "description": "Contract metadata for the collection.",
+      "interfaces": ["TZIP-016", "TZIP-012"],
+      "homepage": "https://gallery.example/finch",
+      "views": [
+        {
+          "name": "token_metadata",
+          "implementations": [
+            {
+              "restApiQuery": {
+                "specificationUri": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.json",
+                "path": "/token/{tokenId}"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

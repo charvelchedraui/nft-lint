@@ -21,7 +21,7 @@
   "files": [
     "dist"
   ],
-  "description": "Tezos TZIP-21 and TZIP-16 (stub).",
+  "description": "Tezos TZIP-12, TZIP-16, and TZIP-21 metadata rules.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

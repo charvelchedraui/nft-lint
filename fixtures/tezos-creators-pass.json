@@ -1,0 +1,43 @@
+{
+  "rule": "tezos/creators",
+  "kind": "pass",
+  "input": {
+    "json": {
+      "decimals": 0,
+      "isBooleanAmount": true,
+      "name": "Glass Finch",
+      "description": "Kiln-fired glass bird.",
+      "minter": "tz1codeYURj5z49HKX9zmLHms2vJN2qDjrtt",
+      "creators": ["tz1codeYURj5z49HKX9zmLHms2vJN2qDjrtt"],
+      "artifactUri": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "displayUri": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "thumbnailUri": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+      "tags": ["glass"],
+      "rights": "No License / CC0",
+      "formats": [
+        {
+          "uri": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/1.png",
+          "mimeType": "image/png",
+          "fileSize": 70,
+          "hash": "abababababababababababababababababababababababababababababababab",
+          "dimensions": {
+            "value": "1x1",
+            "unit": "px"
+          }
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Plumage",
+          "value": "Amber"
+        }
+      ],
+      "royalties": {
+        "decimals": 3,
+        "shares": {
+          "tz1codeYURj5z49HKX9zmLHms2vJN2qDjrtt": 50
+        }
+      }
+    }
+  }
+}
